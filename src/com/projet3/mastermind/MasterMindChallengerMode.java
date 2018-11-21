@@ -7,4 +7,8 @@ import com.projet3.traitementcalcul.TraitementEtCalcul;
  */
 public class MasterMindChallengerMode extends TraitementEtCalcul{
 
+    public void runMasterMindChallengerMode(){
+
+    }
+
 }
