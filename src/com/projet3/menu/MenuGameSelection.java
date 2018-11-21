@@ -1,6 +1,7 @@
 package com.projet3.menu;
 
 import java.util.InputMismatchException;
+import com.projet3.menu.MenuTraitement;
 
 /**
  * Created by i-tem on 21/11/2018.
@@ -9,6 +10,7 @@ public class MenuGameSelection extends MenuTraitement {
 
 
     public void runMenuGameSelection(){
+
 
         do {
 
@@ -25,7 +27,24 @@ public class MenuGameSelection extends MenuTraitement {
             sc.nextLine();
         }while (choixJeux < 1 || choixJeux > 2);
 
-        displayGameModeSelection();
+
+
+
+        do {
+            displayGameModeSelection();
+            System.out.println("Merci de faire un choix");
+
+            try {
+                choixModeJeux = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur de saisie, merci de saisir des chiffres");
+            }
+            sc.nextLine();
+
+        selectedGameMode(choixJeux,choixModeJeux);
+        }while ( choixModeJeux < 1 || choixModeJeux > 3);
+
+
 
 
     }
@@ -55,6 +74,10 @@ public class MenuGameSelection extends MenuTraitement {
         System.out.println("*********                                      **********");
         System.out.println("*********************************************************");
     }
+
+
+
+
 
 
 

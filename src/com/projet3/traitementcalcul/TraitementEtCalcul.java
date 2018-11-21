@@ -8,7 +8,10 @@ import java.util.Random;
 public abstract class TraitementEtCalcul extends Configuration {
 
 
-    private int nombreAleatoire;
+
+
+    protected int nombreAleatoire, chiffreMystereOrdinateur;
+    protected int[] tabChiffreMystereOrdinateur;
 
 
     public void runTraitementEtCalcul(){
@@ -21,13 +24,17 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     //Chiffre Mystere
 
+    public int[] decoupeChiffreMystereOrdinateur(int chiffreMystereOrdinateur){
+        return tabChiffreMystereOrdinateur;
+    }
+
 
     //Master Mind
 
 
     //Fonctions pour les deux jeux
 
-    private int generateNumber(int nbrAleatoireMinimum, int nbrAleatoireMaximum){
+    protected int generateNumber(int nbrAleatoireMinimum, int nbrAleatoireMaximum){
 
         Random rand = new Random();
 
@@ -36,7 +43,7 @@ public abstract class TraitementEtCalcul extends Configuration {
         return  nombreAleatoire;
     }
 
-    private int generateNumber(){
+    protected int generateNumber(){
 
         Random rand = new Random();
 

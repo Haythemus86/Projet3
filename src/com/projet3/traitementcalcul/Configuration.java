@@ -12,16 +12,16 @@ public abstract class Configuration {
     protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai;
 
     public void runConfiguration(){
-        ecrireFichierConfiguration();
+        lireFichierConfiguration();
     }
 
 
-    public void ecrireFichierConfiguration() {
+    protected void ecrireFichierConfiguration() {
 
         Properties p = new Properties();
         OutputStream os = null;
         try {
-            os = new FileOutputStream("com.traitementcalcul.config.properties");
+            os = new FileOutputStream("config.properties");
         } catch (FileNotFoundException e) {
             System.out.println("Fichier de configuration non trouvé");
             e.printStackTrace();
@@ -42,12 +42,12 @@ public abstract class Configuration {
     }
 
 
-    public void lireFichierConfiguration() {
+    protected void lireFichierConfiguration() {
 
         Properties p = new Properties();
         InputStream is = null;
         try {
-            is = new FileInputStream("com.traitementcalcul.config.properties");
+            is = new FileInputStream("config.properties");
         } catch (FileNotFoundException e) {
             System.out.println("Fichier de configuration non trouvé");
             e.printStackTrace();

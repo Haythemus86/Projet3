@@ -1,5 +1,7 @@
 package com.projet3.menu;
 
+
+
 import com.projet3.chiffremystere.ChiffreMystereChallengerMode;
 import com.projet3.chiffremystere.ChiffreMystereDefenseurMode;
 import com.projet3.chiffremystere.ChiffreMystereDuelMode;
@@ -19,8 +21,7 @@ public abstract class MenuTraitement {
 
 
 
-
-    public void SelectedGameMode(int choixJeux, int choixModeJeux){
+    public void selectedGameMode(int choixJeux, int choixModeJeux){
         if ( choixJeux == 1){
             switch (choixModeJeux){
                 case 1 :{
