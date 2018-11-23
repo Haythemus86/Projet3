@@ -8,7 +8,7 @@ import java.util.Properties;
  */
 public abstract class Configuration {
 
-    protected String modeDeveloppeur = "false";
+    protected String modeDeveloppeur = "false", saisieJoueur = "false";
     protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai;
 
     public void runConfiguration(){
@@ -63,6 +63,6 @@ public abstract class Configuration {
         nbrAleatoireMaximum = Integer.parseInt(p.getProperty("nbrAleatoireMaximum"));
         nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
         modeDeveloppeur = p.getProperty("DeveloppeurMode");
-
+        saisieJoueur = p.getProperty("saisieJoueur");
     }
 }

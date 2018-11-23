@@ -76,6 +76,20 @@ public class MenuGameSelection extends MenuTraitement {
     }
 
 
+    public void displayEndGameSelection(){
+        System.out.println("*********     ******************                **********");
+        System.out.println("*********     *MENU FIN DE JEUX*                **********");
+        System.out.println("*********     ******************                **********");
+        System.out.println("*********                                       **********");
+        System.out.println("*********    1_ Recommencer                     **********");
+        System.out.println("*********    2_ Retour Choix Jeux               **********");
+        System.out.println("*********    3_ Quitter l'application           **********");
+        System.out.println("*********                                       **********");
+        System.out.println("*********                                       **********");
+        System.out.println("**********************************************************");
+
+    }
+
 
 
 

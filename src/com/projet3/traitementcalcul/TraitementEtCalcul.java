@@ -1,6 +1,9 @@
 package com.projet3.traitementcalcul;
 
+import com.projet3.menu.MenuGameSelection;
+
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by i-tem on 21/11/2018.
@@ -10,9 +13,11 @@ public abstract class TraitementEtCalcul extends Configuration {
 
 
 
-    protected int nombreAleatoire, chiffreMystereOrdinateur;
-    protected int[] tabChiffreMystereOrdinateur;
-
+    protected int nombreAleatoire, chiffreMystereOrdinateur, choixFinJeux;
+    protected int[] tabChiffreMystereOrdinateur,tabPropositionChiffreJoueur;
+    protected Scanner sc = new Scanner(System.in);
+    protected String propositionChiffreJoueur;
+    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
 
     public void runTraitementEtCalcul(){
 
