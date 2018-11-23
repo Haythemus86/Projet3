@@ -8,10 +8,11 @@ import java.util.Properties;
  */
 public abstract class Configuration {
 
-    protected String modeDeveloppeur = "false", saisieJoueur = "false";
-    protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai;
+    protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux ="false";
+    protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai, nbrCases;
 
     public void runConfiguration(){
+
         lireFichierConfiguration();
     }
 
@@ -62,7 +63,8 @@ public abstract class Configuration {
         nbrAleatoireMinimum = Integer.parseInt(p.getProperty("nbrAleatoireMinimum"));
         nbrAleatoireMaximum = Integer.parseInt(p.getProperty("nbrAleatoireMaximum"));
         nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
-        modeDeveloppeur = p.getProperty("DeveloppeurMode");
-        saisieJoueur = p.getProperty("saisieJoueur");
+        modeDeveloppeur = p.getProperty("developpeurMode");
+        nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
+        configurationJeux = p.getProperty("configurationJeux");
     }
 }

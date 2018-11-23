@@ -29,6 +29,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul{
             } catch (InputMismatchException e) {
                 System.out.println("Erreur de saisie, veuillez saisir des chiffres svp");
             }
+            sc.nextLine();
         }while (choixFinJeux < 1 || choixFinJeux > 3);
 
         menuGameSelection.selectedEndGameMode(2,1,choixFinJeux);
