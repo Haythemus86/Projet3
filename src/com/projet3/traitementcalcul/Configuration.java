@@ -60,8 +60,7 @@ public abstract class Configuration {
             e.printStackTrace();
         }
 
-        nbrAleatoireMinimum = Integer.parseInt(p.getProperty("nbrAleatoireMinimum"));
-        nbrAleatoireMaximum = Integer.parseInt(p.getProperty("nbrAleatoireMaximum"));
+
         nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
         modeDeveloppeur = p.getProperty("developpeurMode");
         nbrCases = Integer.parseInt(p.getProperty("nbrCases"));

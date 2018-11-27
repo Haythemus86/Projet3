@@ -36,31 +36,52 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
         System.out.println("**********        **********************************                 ************");
         System.out.println();
 
-        System.out.println("L'ordinateur réfléchi à un nombre Mystère");
 
+        //Pré configuration de la partie
         if (configurationJeux.equalsIgnoreCase("false")){
                 chiffreMystereOrdinateur = generateNumber();
-                System.out.println("le chiffre mystere de l'ordi est " + chiffreMystereOrdinateur);
-
+                System.out.println("verification du chiffre généré " + chiffreMystereOrdinateur);
         }else{
-
             chiffreMystereOrdinateur = generateNumber(nbrCases);
-            System.out.println("le chiffre mystere de l'ordi est " + chiffreMystereOrdinateur);
+
         }
 
-
-
-
+        tabChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(chiffreMystereOrdinateur);
 
         //Lancement de la partie ( Ordinateur)
-        //System.out.println("L'ordinateur réfléchi à un chiffre Mystère");
+        System.out.println("L'ordinateur réfléchi à un chiffre Mystère");
+        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")){
+            System.out.println("Le chiffre mystère de l'ordinateur est " + chiffreMystereOrdinateur);;
+        }
+
+        //Verification
+        //parcourTableau(tabChiffreMystereOrdinateur);
+
+        System.out.println("Devinez la combinaison Mystère de l'ordinateur");
 
 
+        do {
+            compteur++;
+            //Partie Joueur
+            do {
+
+                System.out.println("Merci de saisir un nombre de " + chiffreMystereOrdinateur.length() + " chiffres");
+                propositionChiffreJoueur = sc.nextLine();
+            }
+            while (!propositionChiffreJoueur.matches(regex) || propositionChiffreJoueur.length() != chiffreMystereOrdinateur.length());
+            tabPropositionChiffreJoueur = decoupePropositionChiffreJoueur(propositionChiffreJoueur);
+
+            //Analyse et traitement
+            compareTableauChiffreMystere(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
+        }while (!java.util.Arrays.equals(tabPropositionChiffreJoueur,tabChiffreMystereOrdinateur) && compteur != nbrEssai);
 
 
-
-
-
+        if( java.util.Arrays.equals(tabPropositionChiffreJoueur,tabChiffreMystereOrdinateur)){
+            System.out.println("Bravo vous avez gagner");
+        }else
+        {
+            System.out.println("Dommage vous avez perdu");
+        }
 
 
         //Fin du jeux

@@ -15,11 +15,14 @@ public abstract class TraitementEtCalcul extends Configuration {
 
 
 
-    protected int nombreAleatoire, chiffreMystereOrdinateur, choixFinJeux;
+    protected int nombreAleatoire, choixFinJeux, compteur = 0;
     protected int[] tabChiffreMystereOrdinateur,tabPropositionChiffreJoueur;
     protected Scanner sc = new Scanner(System.in);
     protected String propositionChiffreJoueur;
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
+    protected String nombreAleatoireString, chiffreMystereOrdinateur, regex ="\\d+";
+    private int tailleIdeale;
+    private String[] tableauZero = {"0","00","000","0000","00000"};
 
     public void runTraitementEtCalcul(){
     }
@@ -30,9 +33,45 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     //Chiffre Mystere
 
-    public int[] decoupeChiffreMystereOrdinateur(int chiffreMystereOrdinateur){
+    public int[] decoupeChiffreMystereOrdinateur(String chiffreMystereOrdinateur){
+        tabChiffreMystereOrdinateur = new int[chiffreMystereOrdinateur.length()];
+
+        for ( int i = 0 ; i < chiffreMystereOrdinateur.length(); i++){
+            tabChiffreMystereOrdinateur[i] = Integer.parseInt(""+chiffreMystereOrdinateur.charAt(i));
+        }
+
         return tabChiffreMystereOrdinateur;
     }
+
+    public int[] decoupePropositionChiffreJoueur(String propositionChiffreJoueur){
+        tabPropositionChiffreJoueur = new int[propositionChiffreJoueur.length()];
+
+        for ( int i = 0 ; i < propositionChiffreJoueur.length(); i++){
+            tabPropositionChiffreJoueur[i] = Integer.parseInt(""+propositionChiffreJoueur.charAt(i));
+        }
+
+        return tabPropositionChiffreJoueur;
+    }
+
+    public void compareTableauChiffreMystere (int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur){
+
+
+        System.out.print("Proposition : " + propositionChiffreJoueur +" -> Réponse : ");
+        for ( int i = 0 ; i < tabChiffreMystereOrdinateur.length; i++){
+            if (tabPropositionChiffreJoueur[i] < tabChiffreMystereOrdinateur[i]){
+                System.out.print("+");
+            }else if (tabPropositionChiffreJoueur[i] > tabChiffreMystereOrdinateur[i]){
+                System.out.print("-");
+            }else {
+                System.out.print("=");
+            }
+
+        }
+
+        System.out.println();
+    }
+
+
 
 
     //Master Mind
@@ -40,24 +79,74 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     //Fonctions pour les deux jeux
 
-    protected int generateNumber(int nbrAleatoireMinimum, int nbrAleatoireMaximum){
 
+    protected String generateNumber(int nbrCases) {
         Random rand = new Random();
 
-        nombreAleatoire = rand.nextInt( nbrAleatoireMaximum - nbrAleatoireMinimum + 1 ) + nbrAleatoireMinimum ;
 
-        return  nombreAleatoire;
+
+        switch ( nbrCases){
+            case 4:{
+                nombreAleatoire = rand.nextInt(9999 + 1) + 1;
+                break;
+            }
+            case 5:{
+                nombreAleatoire = rand.nextInt(99999 + 1) + 1;
+                break;
+            }
+            default:{
+                nombreAleatoire = rand.nextInt(999 + 1) + 1;
+                break;
+            }
+        }
+
+        nombreAleatoireString =""+nombreAleatoire;
+
+        tailleIdeale = nbrCases - nombreAleatoireString.length();
+
+        if ( tailleIdeale == 0){
+
+        }
+        else{
+            nombreAleatoireString = tableauZero[tailleIdeale - 1]+ nombreAleatoire;
+        }
+
+
+        return nombreAleatoireString;
+
+
+
+
     }
 
-    protected int generateNumber(){
+    protected String generateNumber(){
 
         Random rand = new Random();
 
-        nombreAleatoire = rand.nextInt(10000  - 1000 + 1) + 1000 ;
+        nombreAleatoire = rand.nextInt(9999  - 0 + 1) + 1 ;
 
-        return nombreAleatoire;
+        nombreAleatoireString =""+nombreAleatoire;
+
+        tailleIdeale = 4 - nombreAleatoireString.length();
+
+        if ( tailleIdeale == 0){
+
+        }
+        else{
+            nombreAleatoireString = tableauZero[tailleIdeale - 1]+ nombreAleatoire;
+        }
+
+
+        return nombreAleatoireString;
     }
 
 
     //Fonction Test
+
+    public void parcourTableau( int[] tableau){
+        System.out.println("verif tableau");
+        for ( int i = 0 ; i < tableau.length; i++){
+            System.out.print(tableau[i]);
+        }
+    }
 }
