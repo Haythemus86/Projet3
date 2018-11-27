@@ -20,15 +20,14 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
 
 
         runConfiguration();
-
-
+/*
         //Permet d afficher la reponse en mode developpeur
         if ( modeDeveloppeur.equalsIgnoreCase("Off") || Main.modeDeveloppeur.equalsIgnoreCase("Deoppeur")){
             System.out.println("ca marche");
         }else{
             System.out.println("ca marche pas");
         }
-
+*/
 
 
         //Affichage du mode de jeux
@@ -40,10 +39,12 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
         System.out.println("L'ordinateur réfléchi à un nombre Mystère");
 
         if (configurationJeux.equalsIgnoreCase("false")){
-            chiffreMystereOrdinateur = generateNumber();
-            System.out.println("le chiffre mystere de l'ordi est " + chiffreMystereOrdinateur);
+                chiffreMystereOrdinateur = generateNumber();
+                System.out.println("le chiffre mystere de l'ordi est " + chiffreMystereOrdinateur);
+
         }else{
-            chiffreMystereOrdinateur = generateNumber(nbrAleatoireMinimum,nbrAleatoireMaximum);
+
+            chiffreMystereOrdinateur = generateNumber(nbrCases);
             System.out.println("le chiffre mystere de l'ordi est " + chiffreMystereOrdinateur);
         }
 
