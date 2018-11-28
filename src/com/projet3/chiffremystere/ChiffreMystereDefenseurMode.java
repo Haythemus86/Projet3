@@ -1,6 +1,9 @@
 package com.projet3.chiffremystere;
 
+import com.projet3.opc.Main;
 import com.projet3.traitementcalcul.TraitementEtCalcul;
+
+import java.util.InputMismatchException;
 
 /**
  * Created by i-tem on 21/11/2018.
@@ -8,6 +11,66 @@ import com.projet3.traitementcalcul.TraitementEtCalcul;
 public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
 
     public void runChiffreMystereDefenseurMode(){
+
+        //Lecture du fichier de configuration
+        runConfiguration();
+
+
+        //Affichage du mode de jeux
+        System.out.println("**********        **********************************                 ************");
+        System.out.println("**********        *Chiffre Mystere Defenseur Mode  *                 ************");
+        System.out.println("**********        **********************************                 ************");
+        System.out.println();
+
+        //Pré configuration de la partie
+        if (configurationJeux.equalsIgnoreCase("false")){
+
+            do {
+                System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
+                chiffreMystereJoueur = sc.nextLine();
+            }while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
+        }else{
+            do {
+                System.out.println("Veuillez sasir un nombre Mystère à " + nbrCases + " chiffres");
+                chiffreMystereJoueur = sc.nextLine();
+            }while ( !chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != nbrCases);
+        }
+
+        //Mode développeur activé ou non
+        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")){
+            System.out.println("Votre chiffre Mystere est " + chiffreMystereJoueur);;
+        }
+
+        //Découpe du chiffre mystere du joueur et passage dans un tableau
+        tabChiffreMystereJoueur = decoupePropositionChiffreJoueur(chiffreMystereJoueur);
+
+        //Partie Ordinateur
+        System.out.println("L'ordinateur réfléchi à un chiffre Mystère");
+
+        if (configurationJeux.equalsIgnoreCase("false")){
+            propositionChiffreMystereOrdinateur = generateNumber();
+        }else{
+            propositionChiffreMystereOrdinateur = generateNumber(nbrCases);
+        }
+
+        tabPropositionChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(propositionChiffreMystereOrdinateur);
+
+        //Comparaison et calcul
+        compareTbaleauChiffreMystereDefenseur(tabChiffreMystereJoueur,tabChiffreMystereOrdinateur,propositionChiffreMystereOrdinateur,chiffreMystereJoueur);
+
+        //Fin du jeux
+        do {
+            menuGameSelection.displayEndGameSelection();
+            System.out.println("Veuillez faire un choix svp");
+            try {
+                choixFinJeux = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur de saisie, veuillez saisir des chiffres svp");
+            }
+            sc.nextLine();
+        }while (choixFinJeux < 1 || choixFinJeux > 3);
+
+        menuGameSelection.selectedEndGameMode(1,2,choixFinJeux);
 
     }
 }

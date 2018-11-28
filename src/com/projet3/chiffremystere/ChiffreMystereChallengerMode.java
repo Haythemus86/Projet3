@@ -83,11 +83,11 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
             System.out.println("Dommage vous avez perdu");
         }
 
+        System.out.println();
+
 
         //Fin du jeux
-
         do {
-
 
             menuGameSelection.displayEndGameSelection();
             System.out.println("Veuillez faire un choix svp");
