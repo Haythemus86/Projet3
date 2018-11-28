@@ -44,6 +44,7 @@ public abstract class TraitementEtCalcul extends Configuration {
         return tabChiffreMystereOrdinateur;
     }
 
+
     public int[] decoupePropositionChiffreJoueur(String propositionChiffreJoueur){
         tabPropositionChiffreJoueur = new int[propositionChiffreJoueur.length()];
 
@@ -52,6 +53,26 @@ public abstract class TraitementEtCalcul extends Configuration {
         }
 
         return tabPropositionChiffreJoueur;
+    }
+
+    public int[] decoupeChiffreMystereJoueur ( String chiffreMystereJoueur){
+        tabChiffreMystereJoueur = new int[chiffreMystereJoueur.length()];
+
+        for ( int i = 0 ; i < chiffreMystereJoueur.length(); i++){
+            tabChiffreMystereJoueur[i] = Integer.parseInt(""+chiffreMystereJoueur.charAt(i));
+        }
+
+        return tabChiffreMystereJoueur;
+    }
+
+
+    public int[] decoupePropositionChiffreMystereOrdinateur(String propositionChiffreMystereOrdinateur){
+        tabPropositionChiffreMystereOrdinateur = new int[propositionChiffreMystereOrdinateur.length()];
+
+        for ( int i = 0 ; i < propositionChiffreMystereOrdinateur.length(); i++){
+            tabPropositionChiffreMystereOrdinateur[i] = Integer.parseInt(""+propositionChiffreMystereOrdinateur.charAt(i));
+        }
+        return tabPropositionChiffreMystereOrdinateur;
     }
 
     public void compareTableauChiffreMystere (int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur){
@@ -129,6 +150,8 @@ public abstract class TraitementEtCalcul extends Configuration {
 
 
     //Fonctions pour les deux jeux
+
+
 
 
     protected String generateNumber(int nbrCases) {
