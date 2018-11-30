@@ -23,7 +23,7 @@ public abstract class TraitementEtCalcul extends Configuration {
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
     protected String nombreAleatoireString, chiffreMystereOrdinateur, regex ="\\d+", propositionChiffreMystereOrdinateur;
     private int tailleIdeale;
-    private String[] tableauZero = {"0","00","000","0000","00000"};
+    private String[] tableauZero = {"0","00","000","0000","00000", "000000","0000000","00000000","000000000"};
     private int placer;
     private int present;
 
@@ -150,43 +150,66 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     //Master Mind
 
-    public void compareMasterMind ( int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur){
+    public void compareMasterMind ( int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur) {
 
-        System.out.print("Réponse : " );
+        System.out.print("Réponse : ");
 
         boolean[] bienPlacer = new boolean[tabChiffreMystereOrdinateur.length];
 
 
-        placer = 0 ; present = 0;
-        for (int i = 0 ; i< tabChiffreMystereOrdinateur.length; i++){
-            if ( tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[i]){
+        placer = 0;
+        present = 0;
+        for (int i = 0; i < tabChiffreMystereOrdinateur.length; i++) {
+            if (tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[i]) {
                 bienPlacer[i] = true;
                 placer++;
-            }else{
+            } else {
                 bienPlacer[i] = false;
             }
         }
 
-        for ( int i = 0 ; i < tabChiffreMystereOrdinateur.length; i++){
-            for ( int j = 0 ; j < tabPropositionChiffreJoueur.length; j++){
-                if (tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[j] && (!bienPlacer[j]) ){
+        for (int i = 0; i < tabChiffreMystereOrdinateur.length; i++) {
+            for (int j = 0; j < tabPropositionChiffreJoueur.length; j++) {
+                if (tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[j] && (!bienPlacer[j])) {
                     present++;
                 }
             }
         }
 
-        if ( present > 0 && placer > 0){
-            System.out.println(" présent "+ present+ ", bien placé " +placer);
-        }else if ( present > 0 && placer == 0){
+        if (present > 0 && placer > 0) {
+            System.out.println(" présent " + present + ", bien placé " + placer);
+        } else if (present > 0 && placer == 0) {
             System.out.println(" present " + present);
-        }else if (present == 0 && placer > 0){
+        } else if (present == 0 && placer > 0) {
             System.out.println(" bien placé " + placer);
-        }else{
+        } else {
             System.out.println("Rien à afficher");
         }
-
     }
 
+        public void remiseAzero(){
+            for ( int i = 0 ; i < tabPropositionChiffreMystereOrdinateur.length; i ++){
+                if (tabPropositionChiffreMystereOrdinateur[i] != tabChiffreMystereJoueur[i]){
+                    tabPropositionChiffreMystereOrdinateur[i] = 0;
+                }
+            }
+        }
+
+        public void testProposition(){
+
+
+            System.out.print("Proposition de l'ordinateur : ");
+            for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
+                System.out.print(tabPropositionChiffreMystereOrdinateur[i]);
+            }
+            for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
+                if (tabPropositionChiffreMystereOrdinateur[i] != tabChiffreMystereJoueur[i]) {
+                    tabPropositionChiffreMystereOrdinateur[i] += 1;
+                    System.out.println();
+                }
+            }
+
+        }
 
 
 
@@ -202,19 +225,31 @@ public abstract class TraitementEtCalcul extends Configuration {
 
         switch ( nbrCases){
             case 4:{
-                nombreAleatoire = rand.nextInt(9999 + 1) + 1;
+                nombreAleatoire = rand.nextInt(9999  - 0 + 1) + 0 ;
                 break;
             }
             case 5:{
-                nombreAleatoire = rand.nextInt(99999 + 1) + 1;
+                nombreAleatoire = rand.nextInt(99999  - 0 + 1) + 0 ;
                 break;
             }
             case 6:{
-                nombreAleatoire = rand.nextInt(999999 + 1) + 1;
+                nombreAleatoire = rand.nextInt(999999 - 0 + 1) + 0 ;
+                break;
+            }
+            case 7:{
+                nombreAleatoire = rand.nextInt(9999999  - 0 + 1) + 0 ;
+                break;
+            }
+            case 8:{
+                nombreAleatoire = rand.nextInt(99999999  - 0 + 1) + 0 ;
+                break;
+            }
+            case 9:{
+                nombreAleatoire = rand.nextInt(999999999  - 0 + 1) + 0 ;
                 break;
             }
             default:{
-                nombreAleatoire = rand.nextInt(999 + 1) + 1;
+                nombreAleatoire = rand.nextInt(9999 + 1) + 1;
                 break;
             }
         }
