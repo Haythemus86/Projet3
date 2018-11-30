@@ -24,6 +24,8 @@ public abstract class TraitementEtCalcul extends Configuration {
     protected String nombreAleatoireString, chiffreMystereOrdinateur, regex ="\\d+", propositionChiffreMystereOrdinateur;
     private int tailleIdeale;
     private String[] tableauZero = {"0","00","000","0000","00000"};
+    private int placer;
+    private int present;
 
     public void runTraitementEtCalcul(){
     }
@@ -147,6 +149,45 @@ public abstract class TraitementEtCalcul extends Configuration {
 
 
     //Master Mind
+
+    public void compareMasterMind ( int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur){
+
+        System.out.print("Réponse : " );
+
+        boolean[] bienPlacer = new boolean[tabChiffreMystereOrdinateur.length];
+
+
+        placer = 0 ; present = 0;
+        for (int i = 0 ; i< tabChiffreMystereOrdinateur.length; i++){
+            if ( tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[i]){
+                bienPlacer[i] = true;
+                placer++;
+            }else{
+                bienPlacer[i] = false;
+            }
+        }
+
+        for ( int i = 0 ; i < tabChiffreMystereOrdinateur.length; i++){
+            for ( int j = 0 ; j < tabPropositionChiffreJoueur.length; j++){
+                if (tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[j] && (!bienPlacer[j]) ){
+                    present++;
+                }
+            }
+        }
+
+        if ( present > 0 && placer > 0){
+            System.out.println(" présent "+ present+ ", bien placé " +placer);
+        }else if ( present > 0 && placer == 0){
+            System.out.println(" present " + present);
+        }else if (present == 0 && placer > 0){
+            System.out.println(" bien placé " + placer);
+        }else{
+            System.out.println("Rien à afficher");
+        }
+
+    }
+
+
 
 
     //Fonctions pour les deux jeux

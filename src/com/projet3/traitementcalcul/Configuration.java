@@ -9,7 +9,7 @@ import java.util.Properties;
 public abstract class Configuration {
 
     protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux ="false";
-    protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai, nbrCases;
+    protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai = 6, nbrCases;
 
     public void runConfiguration(){
 
