@@ -26,6 +26,7 @@ public class MasterMindDefenseurMode extends TraitementEtCalcul {
             do {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 chiffreMystereJoueur = sc.nextLine();
+                nbrEssai = 10;
             }while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
         }else{
             do {

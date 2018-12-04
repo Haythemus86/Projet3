@@ -26,6 +26,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
             do {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 chiffreMystereJoueur = sc.nextLine();
+                nbrEssai = 2;
             }while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
         }else{
             do {
@@ -122,7 +123,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
         remiseAzero();
 
         do {
-            compteur++;
+
 
 
             //Partie Joueur2
@@ -139,7 +140,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
                 } while (!propositionChiffreJoueur.matches(regex) || propositionChiffreJoueur.length() != nbrCases);
             }
             tabPropositionChiffreJoueur = decoupePropositionChiffreJoueur(propositionChiffreJoueur);
-
+            compteur++;
             //traitement joueur vs ordinateur
             compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
             System.out.println();
