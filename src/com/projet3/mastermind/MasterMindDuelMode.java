@@ -81,6 +81,27 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
 
         //traitement joueur vs ordinateur
         compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
+
+        if ( java.util.Arrays.equals(tabPropositionChiffreJoueur,tabChiffreMystereOrdinateur)){
+            System.out.println("bravo vous avez gagné ");
+
+            //Affichage Menu fin de Jeux
+            do {
+                menuGameSelection.displayEndGameSelection();
+                System.out.println("Veuillez faire un choix svp");
+
+                try {
+                    choixFinJeux = sc.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Erreur de saisie, veuillez saisir des chiffres svp");
+                }
+                sc.nextLine();
+            }while (choixFinJeux < 1 || choixFinJeux > 3);
+            menuGameSelection.selectedEndGameMode(2,3,choixFinJeux);
+
+        }
+
+
         System.out.println();
 
         //Partie Ordinateur
@@ -126,7 +147,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
             compareMasterMind(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur,propositionChiffreMystereOrdinateur);
             System.out.println();
 
-        }while ( !java.util.Arrays.equals(tabChiffreMystereJoueur,tabPropositionChiffreMystereOrdinateur) );
+        }while ( !java.util.Arrays.equals(tabChiffreMystereJoueur,tabPropositionChiffreMystereOrdinateur) && !java.util.Arrays.equals(tabPropositionChiffreJoueur,tabChiffreMystereOrdinateur) );
 
 
 

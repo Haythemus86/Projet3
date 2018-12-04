@@ -17,7 +17,7 @@ public class MasterMindDefenseurMode extends TraitementEtCalcul {
 
         //Affichage du mode de jeux
         System.out.println("**********        *******************************                     *******************");
-        System.out.println("**********        **Master Mind Challenger Mode**                     *******************");
+        System.out.println("**********        **Master Mind Defenseur Mode**                     *******************");
         System.out.println("**********        *******************************                     *******************");
 
         //Pré configuration de la partie

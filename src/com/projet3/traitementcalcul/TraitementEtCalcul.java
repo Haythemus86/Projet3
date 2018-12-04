@@ -151,14 +151,14 @@ public abstract class TraitementEtCalcul extends Configuration {
     //Master Mind
 
     public void compareMasterMind ( int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur) {
-
+        placer = 0;
+        present = 0;
         System.out.print("Réponse : ");
 
         boolean[] bienPlacer = new boolean[tabChiffreMystereOrdinateur.length];
 
 
-        placer = 0;
-        present = 0;
+
         for (int i = 0; i < tabChiffreMystereOrdinateur.length; i++) {
             if (tabPropositionChiffreJoueur[i] == tabChiffreMystereOrdinateur[i]) {
                 bienPlacer[i] = true;
@@ -198,16 +198,18 @@ public abstract class TraitementEtCalcul extends Configuration {
         public void testProposition(){
 
 
-            System.out.print("Proposition de l'ordinateur : ");
-            for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
-                System.out.print(tabPropositionChiffreMystereOrdinateur[i]);
-            }
+
             for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
                 if (tabPropositionChiffreMystereOrdinateur[i] != tabChiffreMystereJoueur[i]) {
                     tabPropositionChiffreMystereOrdinateur[i] += 1;
                     System.out.println();
                 }
             }
+            System.out.print("Proposition de l'ordinateur : ");
+            for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
+                System.out.print(tabPropositionChiffreMystereOrdinateur[i]);
+            }
+            System.out.println();
 
         }
 
