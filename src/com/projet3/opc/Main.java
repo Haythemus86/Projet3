@@ -8,8 +8,20 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         //Parametre qui permet d'activer le mode developpeur au lancement de l'application
-        modeDeveloppeur = args[0];
+        try{
+            if ( args[0] != null){
+                modeDeveloppeur = args[0];
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("pas de parametre au lancement de l'appli");
+        }finally {
+            modeDeveloppeur ="false";
+        }
+
+
+
 
         //Lancement du jeux
         MenuGameSelection menuGameSelection = new MenuGameSelection();
