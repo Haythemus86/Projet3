@@ -55,7 +55,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul{
 
 
             //Comparaison et calcul
-            compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
+           // compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
         }while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && compteur != nbrEssai);
 
         if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)){
@@ -63,6 +63,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul{
         }else{
             System.out.println("Dommage vous avez perdu!! la réponse était " + chiffreMystereOrdinateur);
         }
+
 
         //Affichage Menu fin de Jeux
         do {

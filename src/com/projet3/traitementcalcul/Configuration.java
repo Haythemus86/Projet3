@@ -12,7 +12,7 @@ public abstract class Configuration {
     protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai = 10, nbrCases;
 
     public void runConfiguration(){
-
+      //  ecrireFichierConfiguration();
         lireFichierConfiguration();
     }
 
@@ -22,15 +22,13 @@ public abstract class Configuration {
         Properties p = new Properties();
         OutputStream os = null;
         try {
-            os = new FileOutputStream("config.properties");
+            os = new FileOutputStream("./resources/config.properties");
         } catch (FileNotFoundException e) {
             System.out.println("Fichier de configuration non trouvé");
             e.printStackTrace();
         }
 
         p.setProperty("DeveloppeurMode", "true");
-        p.setProperty("nbrAleatoireMinimum", "100");
-        p.setProperty("nbrAleatoireMaximum", "10000");
         p.setProperty("nbrEssai", "10");
         try {
             p.store(os, null);
@@ -48,7 +46,7 @@ public abstract class Configuration {
         Properties p = new Properties();
         InputStream is = null;
         try {
-            is = new FileInputStream("config.properties");
+            is = new FileInputStream("./resources/config.properties");
         } catch (FileNotFoundException e) {
             System.out.println("Fichier de configuration non trouvé");
             e.printStackTrace();
