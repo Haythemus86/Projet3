@@ -10,15 +10,13 @@ public class Main {
 
 
         //Parametre qui permet d'activer le mode developpeur au lancement de l'application
-        try{
-            if ( args[0] != null){
-                modeDeveloppeur = args[0];
-            }
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("pas de parametre au lancement de l'appli");
-        }finally {
-            modeDeveloppeur ="false";
-        }
+
+
+                if ( args.length == 0){
+                    modeDeveloppeur ="false";
+                }else{
+                    modeDeveloppeur = args[0];
+                }
 
 
 
