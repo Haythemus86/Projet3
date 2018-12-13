@@ -1,4 +1,4 @@
-package com.projet3.traitementcalcul;
+package main.java.projet3.traitementcalcul;
 
 import java.io.*;
 import java.util.Properties;
@@ -12,7 +12,7 @@ public abstract class Configuration {
     protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai = 10, nbrCases;
 
     public void runConfiguration(){
-      //  ecrireFichierConfiguration();
+      // ecrireFichierConfiguration();
         lireFichierConfiguration();
     }
 
@@ -22,7 +22,7 @@ public abstract class Configuration {
         Properties p = new Properties();
         OutputStream os = null;
         try {
-            os = new FileOutputStream("./resources/config.properties");
+            os = new FileOutputStream("./src/main/resources/config.properties");
         } catch (FileNotFoundException e) {
             System.out.println("Fichier de configuration non trouvé");
             e.printStackTrace();
@@ -46,7 +46,7 @@ public abstract class Configuration {
         Properties p = new Properties();
         InputStream is = null;
         try {
-            is = new FileInputStream("./resources/config.properties");
+            is = new FileInputStream("./src/main/resources/config.properties");
         } catch (FileNotFoundException e) {
             System.out.println("Fichier de configuration non trouvé");
             e.printStackTrace();

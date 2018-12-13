@@ -1,8 +1,7 @@
-package com.projet3.mastermind;
+package main.java.projet3.mastermind;
 
-import com.projet3.opc.Main;
-import com.projet3.traitementcalcul.TraitementEtCalcul;
-import com.projet3.menu.MenuGameSelection;
+import main.java.projet3.opc.Main;
+import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 
 import java.util.InputMismatchException;
 

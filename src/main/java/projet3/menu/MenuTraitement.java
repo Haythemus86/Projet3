@@ -1,13 +1,13 @@
-package com.projet3.menu;
+package main.java.projet3.menu;
 
 
 
-import com.projet3.chiffremystere.ChiffreMystereChallengerMode;
-import com.projet3.chiffremystere.ChiffreMystereDefenseurMode;
-import com.projet3.chiffremystere.ChiffreMystereDuelMode;
-import com.projet3.mastermind.MasterMindChallengerMode;
-import com.projet3.mastermind.MasterMindDefenseurMode;
-import com.projet3.mastermind.MasterMindDuelMode;
+import main.java.projet3.chiffremystere.ChiffreMystereChallengerMode;
+import main.java.projet3.chiffremystere.ChiffreMystereDefenseurMode;
+import main.java.projet3.chiffremystere.ChiffreMystereDuelMode;
+import main.java.projet3.mastermind.MasterMindChallengerMode;
+import main.java.projet3.mastermind.MasterMindDefenseurMode;
+import main.java.projet3.mastermind.MasterMindDuelMode;
 
 import java.util.Scanner;
 

@@ -1,7 +1,7 @@
-package com.projet3.chiffremystere;
+package main.java.projet3.chiffremystere;
 
-import com.projet3.opc.Main;
-import com.projet3.traitementcalcul.TraitementEtCalcul;
+import main.java.projet3.opc.Main;
+import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 
 
 import java.util.InputMismatchException;

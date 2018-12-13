@@ -1,10 +1,15 @@
-package com.projet3.opc;
+package main.java.projet3.opc;
 
-import com.projet3.menu.MenuGameSelection;
+
+import main.java.projet3.menu.MenuGameSelection;
+import org.apache.log4j.Logger;
+
 
 public class Main {
 
     public static String modeDeveloppeur ="";
+
+    final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
 
@@ -20,10 +25,11 @@ public class Main {
 
 
 
-
         //Lancement du jeux
         MenuGameSelection menuGameSelection = new MenuGameSelection();
         menuGameSelection.runMenuGameSelection();
+
+        
 
 
 

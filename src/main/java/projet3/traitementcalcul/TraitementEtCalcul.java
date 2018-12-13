@@ -1,7 +1,6 @@
-package com.projet3.traitementcalcul;
+package main.java.projet3.traitementcalcul;
 
-import com.projet3.menu.MenuGameSelection;
-import com.projet3.opc.Main;
+import main.java.projet3.menu.MenuGameSelection;
 
 import java.util.Random;
 import java.util.Scanner;

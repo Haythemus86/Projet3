@@ -1,0 +1,29 @@
+<!ELEMENT log4j:configuration (appender*,root?)>
+        <!ATTLIST log4j:configuration
+                xmlns:log4j              CDATA #FIXED "http://jakarta.apache.org/log4j/"
+                threshold                (all|trace|debug|info|warn|error|fatal|off|null) "null"
+                debug                    (true|false|null)  "null"
+                reset                    (true|false) "false">
+<!ELEMENT appender (param*,layout?)>
+        <!ATTLIST appender
+                name         CDATA   #REQUIRED
+                class        CDATA   #REQUIRED
+                >
+<!ELEMENT root (param*,priority*,appender-ref*)>
+<!ELEMENT priority EMPTY>
+<!ATTLIST priority
+        value (all|trace|debug|info|warn|error|fatal|off|null) #REQUIRED
+        >
+<!ELEMENT appender-ref EMPTY>
+<!ATTLIST appender-ref
+        ref CDATA #REQUIRED
+>
+<!ELEMENT param EMPTY>
+<!ATTLIST param
+        name CDATA #REQUIRED
+        value CDATA #REQUIRED
+        >
+<!ELEMENT layout (param)>
+<!ATTLIST  layout
+        class CDATA #REQUIRED
+        >

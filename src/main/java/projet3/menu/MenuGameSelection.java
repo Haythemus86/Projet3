@@ -1,7 +1,6 @@
-package com.projet3.menu;
+package main.java.projet3.menu;
 
 import java.util.InputMismatchException;
-import com.projet3.menu.MenuTraitement;
 
 /**
  * Created by i-tem on 21/11/2018.
