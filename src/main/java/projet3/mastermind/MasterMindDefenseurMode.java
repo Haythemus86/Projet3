@@ -2,6 +2,7 @@ package main.java.projet3.mastermind;
 
 import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
+import org.apache.log4j.Logger;
 
 import java.util.InputMismatchException;
 
@@ -9,6 +10,8 @@ import java.util.InputMismatchException;
  * Created by i-tem on 21/11/2018.
  */
 public class MasterMindDefenseurMode extends TraitementEtCalcul {
+
+    final static Logger logger = Logger.getLogger(MasterMindDefenseurMode.class);
 
     public void runMasterMindDefenseurMode(){
 
@@ -65,7 +68,7 @@ public class MasterMindDefenseurMode extends TraitementEtCalcul {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.debug("problème avec le threadsleep");
             }
             testProposition();
             compareMasterMind(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur,propositionChiffreMystereOrdinateur);
@@ -89,7 +92,7 @@ public class MasterMindDefenseurMode extends TraitementEtCalcul {
             try {
                 choixFinJeux = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Erreur de saisie, veuillez saisir des chiffres svp");
+                logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
         }while (choixFinJeux < 1 || choixFinJeux > 3);

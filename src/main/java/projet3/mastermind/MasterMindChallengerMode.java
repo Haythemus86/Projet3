@@ -2,13 +2,18 @@ package main.java.projet3.mastermind;
 
 import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
+import org.apache.log4j.Logger;
+
 
 import java.util.InputMismatchException;
+
 
 /**
  * Created by i-tem on 21/11/2018.
  */
 public class MasterMindChallengerMode extends TraitementEtCalcul{
+
+ final static Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
 
     public void runMasterMindChallengerMode(){
        //Lecture du fichier de configuration
@@ -72,7 +77,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul{
             try {
                 choixFinJeux = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Erreur de saisie, veuillez saisir des chiffres svp");
+                logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
         }while (choixFinJeux < 1 || choixFinJeux > 3);
