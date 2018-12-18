@@ -1,5 +1,7 @@
 package main.java.projet3.menu;
 
+import org.apache.log4j.Logger;
+
 import java.util.InputMismatchException;
 
 /**
@@ -7,6 +9,7 @@ import java.util.InputMismatchException;
  */
 public class MenuGameSelection extends MenuTraitement {
 
+    final static Logger logger = Logger.getLogger(MenuGameSelection.class);
 
     public void runMenuGameSelection(){
 
@@ -20,7 +23,7 @@ public class MenuGameSelection extends MenuTraitement {
             try {
                 choixJeux = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Erreur de saisie, merci de saisir des chiffres");
+                logger.debug("Erreur de saisie, merci de saisir des chiffres");
 
             }
             sc.nextLine();
@@ -36,7 +39,7 @@ public class MenuGameSelection extends MenuTraitement {
             try {
                 choixModeJeux = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Erreur de saisie, merci de saisir des chiffres");
+                logger.debug("Erreur de saisie, merci de saisir des chiffres");
             }
             sc.nextLine();
 
