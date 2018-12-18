@@ -2,6 +2,7 @@ package main.java.projet3.chiffremystere;
 
 import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
+import org.apache.log4j.Logger;
 
 
 import java.util.InputMismatchException;
@@ -13,7 +14,7 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
 
 
 
-
+final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
 
 
     public void runChiffreMystereChallengerMode(){
@@ -95,7 +96,7 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
             try {
                 choixFinJeux = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Erreur de saisie, veuillez saisir des chiffres svp");
+                logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
         }while (choixFinJeux < 1 || choixFinJeux > 3);

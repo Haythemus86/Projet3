@@ -9,7 +9,7 @@ public class Main {
 
     public static String modeDeveloppeur ="";
 
-    final static Logger logger = Logger.getLogger(Main.class);
+
 
     public static void main(String[] args) {
 
@@ -29,7 +29,7 @@ public class Main {
         MenuGameSelection menuGameSelection = new MenuGameSelection();
         menuGameSelection.runMenuGameSelection();
 
-        
+
 
 
 
