@@ -1,5 +1,7 @@
 package main.java.projet3.traitementcalcul;
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -8,6 +10,7 @@ import java.util.Properties;
  */
 public abstract class Configuration {
 
+    final static Logger logger = Logger.getLogger(Configuration.class);
     protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux ="false";
     protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai = 10, nbrCases;
 
@@ -24,8 +27,9 @@ public abstract class Configuration {
         try {
             os = new FileOutputStream("./src/main/resources/config.properties");
         } catch (FileNotFoundException e) {
-            System.out.println("Fichier de configuration non trouvé");
-            e.printStackTrace();
+            logger.debug("Fichier de configuration non trouvé");
+
+
         }
 
         p.setProperty("DeveloppeurMode", "true");
@@ -33,8 +37,7 @@ public abstract class Configuration {
         try {
             p.store(os, null);
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Erreur d'écriture dans le fichier");
+            logger.debug("Erreur d'écriture dans le fichier");
         }
 
 
@@ -48,14 +51,12 @@ public abstract class Configuration {
         try {
             is = new FileInputStream("./src/main/resources/config.properties");
         } catch (FileNotFoundException e) {
-            System.out.println("Fichier de configuration non trouvé");
-            e.printStackTrace();
+            logger.debug("Fichier de configuration non trouvé");
         }
         try {
             p.load(is);
         } catch (IOException e) {
-            System.out.println("Impossible de charger le fichier de configuration");
-            e.printStackTrace();
+            logger.debug("Impossible de charger le fichier de configuration");
         }
 
 

@@ -4,16 +4,14 @@ import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 import org.apache.log4j.Logger;
 
-
 import java.util.InputMismatchException;
-
 
 /**
  * Created by i-tem on 21/11/2018.
  */
-public class MasterMindChallengerMode extends TraitementEtCalcul{
+public class MasterMindChallengerMode extends TraitementEtCalcul {
 
- final static Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
+    final static Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
 
     public void runMasterMindChallengerMode(){
        //Lecture du fichier de configuration
@@ -59,7 +57,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul{
 
 
             //Comparaison et calcul
-           // compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
+            compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
         }while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && compteur != nbrEssai);
 
         if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)){

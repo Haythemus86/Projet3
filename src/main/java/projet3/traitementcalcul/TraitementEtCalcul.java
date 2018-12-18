@@ -1,6 +1,7 @@
 package main.java.projet3.traitementcalcul;
 
 import main.java.projet3.menu.MenuGameSelection;
+import org.apache.log4j.Logger;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 public abstract class TraitementEtCalcul extends Configuration {
 
 
+    final static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
 
 
 
@@ -104,7 +106,7 @@ public abstract class TraitementEtCalcul extends Configuration {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.debug("Problème avec la fonction ThreadSleep");
             }
 
             for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
