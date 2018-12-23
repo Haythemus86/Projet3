@@ -14,6 +14,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
     final static Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
 
     public void runMasterMindChallengerMode() {
+
         //Lecture du fichier de configuration
         runConfiguration();
 
@@ -31,7 +32,7 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
         }
 
         //Permet d'afficher la solution en mode développeur
-        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Deoppeur")) {
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le combinaison généré par l'ordinateur est  " + chiffreMystereOrdinateur);
         }
         tabChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(chiffreMystereOrdinateur);
