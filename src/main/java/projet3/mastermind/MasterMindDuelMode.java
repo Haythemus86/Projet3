@@ -4,6 +4,7 @@ import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -29,7 +30,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
             do {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 chiffreMystereJoueur = sc.nextLine();
-                nbrEssai = 2;
+                nbrEssai = 10;
             } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
         } else {
             do {
@@ -64,7 +65,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
         System.out.println("La combinaison de l'ordinateur est enregistré");
 
         //Permet d'afficher la solution en mode développeur
-        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Deoppeur")) {
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le combinaison généré par l'ordinateur est  ici " + chiffreMystereOrdinateur);
         }
 
@@ -88,7 +89,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
         //traitement joueur vs ordinateur
         compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
 
-        if (java.util.Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
+        if (Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
             System.out.println("bravo vous avez gagné ");
 
             //Affichage Menu fin de Jeux
@@ -147,7 +148,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
             //traitement joueur vs ordinateur
             compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
             System.out.println();
-            if (java.util.Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
+            if (Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
                 break;
             }
 
@@ -157,11 +158,11 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
             System.out.println();
 
         }
-        while (!java.util.Arrays.equals(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur) && !java.util.Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur) && compteur != nbrEssai);
+        while (!Arrays.equals(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur) && !Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur) && compteur != nbrEssai);
 
-        if (java.util.Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
+        if (Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné la réponse est " + chiffreMystereOrdinateur);
-        } else if (java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
+        } else if (Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println("L'ordinateur à gagné, la réponse est " + chiffreMystereJoueur);
         } else {
             System.out.println("Désolé vous avez perdu tous les deux ");
