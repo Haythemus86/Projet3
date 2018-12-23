@@ -4,7 +4,7 @@ import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 import org.apache.log4j.Logger;
 
-
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -13,23 +13,13 @@ import java.util.InputMismatchException;
 public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
 
 
+    final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
 
-final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
 
-
-    public void runChiffreMystereChallengerMode(){
+    public void runChiffreMystereChallengerMode() {
 
 
         runConfiguration();
-/*
-        //Permet d afficher la reponse en mode developpeur
-        if ( modeDeveloppeur.equalsIgnoreCase("Off") || Main.modeDeveloppeur.equalsIgnoreCase("Deoppeur")){
-            System.out.println("ca marche");
-        }else{
-            System.out.println("ca marche pas");
-        }
-*/
-
 
         //Affichage du mode de jeux
         System.out.println("**********        **********************************                 ************");
@@ -39,10 +29,9 @@ final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class
 
 
         //Pré configuration de la partie
-        if (configurationJeux.equalsIgnoreCase("false")){
-                chiffreMystereOrdinateur = generateNumber();
-                System.out.println("verification du chiffre généré " + chiffreMystereOrdinateur);
-        }else{
+        if (configurationJeux.equalsIgnoreCase("false")) {
+            chiffreMystereOrdinateur = generateNumber();
+        } else {
             chiffreMystereOrdinateur = generateNumber(nbrCases);
 
         }
@@ -51,12 +40,10 @@ final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class
 
         //Lancement de la partie ( Ordinateur)
         System.out.println("L'ordinateur réfléchi à un chiffre Mystère");
-        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")){
-            System.out.println("Le chiffre mystère de l'ordinateur est " + chiffreMystereOrdinateur);;
-        }
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+            System.out.println("Le chiffre mystère de l'ordinateur est " + chiffreMystereOrdinateur);
 
-        //Verification
-        //parcourTableau(tabChiffreMystereOrdinateur);
+        }
 
         System.out.println("Devinez la combinaison Mystère de l'ordinateur");
 
@@ -74,13 +61,13 @@ final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class
 
             //Analyse et traitement
             compareTableauChiffreMystere(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
-        }while (!java.util.Arrays.equals(tabPropositionChiffreJoueur,tabChiffreMystereOrdinateur) && compteur != nbrEssai);
+        }
+        while (!Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur) && compteur != nbrEssai);
 
 
-        if( java.util.Arrays.equals(tabPropositionChiffreJoueur,tabChiffreMystereOrdinateur)){
+        if (Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagner");
-        }else
-        {
+        } else {
             System.out.println("Dommage vous avez perdu");
         }
 
@@ -99,10 +86,9 @@ final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class
                 logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
-        }while (choixFinJeux < 1 || choixFinJeux > 3);
+        } while (choixFinJeux < 1 || choixFinJeux > 3);
 
-        menuGameSelection.selectedEndGameMode(1,1,choixFinJeux);
-
+        menuGameSelection.selectedEndGameMode(1, 1, choixFinJeux);
 
     }
 
