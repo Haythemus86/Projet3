@@ -13,7 +13,7 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
 
     final static Logger logger = Logger.getLogger(ChiffreMystereDuelMode.class);
 
-    public void runChiffreMystereDuelMode(){
+    public void runChiffreMystereDuelMode() {
 
         //Lecture du fichier de configuration
         runConfiguration();
@@ -26,39 +26,40 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
         System.out.println();
 
         //Partie Joueur
-        if (configurationJeux.equalsIgnoreCase("false")){
+        if (configurationJeux.equalsIgnoreCase("false")) {
 
             do {
                 System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
                 chiffreMystereJoueur = sc.nextLine();
-            }while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
-        }else{
+            } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
+        } else {
             do {
                 System.out.println("Veuillez sasir un nombre Mystère à " + nbrCases + " chiffres");
                 chiffreMystereJoueur = sc.nextLine();
-            }while ( !chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != nbrCases);
+            } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != nbrCases);
         }
-        tabChiffreMystereJoueur = decoupeChiffreMystereJoueur( chiffreMystereJoueur);
+        tabChiffreMystereJoueur = decoupeChiffreMystereJoueur(chiffreMystereJoueur);
         System.out.println("Le chiffre mystere du joueur est enregistré");
 
         //Mode développeur activé ou non
-        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Developpeur")){
-            System.out.println("Votre chiffre Mystere est " + chiffreMystereJoueur);;
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Developpeur")) {
+            System.out.println("Votre chiffre Mystere est " + chiffreMystereJoueur);
+            ;
         }
 
 
         //Partie Ordinateur
-        if (configurationJeux.equalsIgnoreCase("false")){
+        if (configurationJeux.equalsIgnoreCase("false")) {
             chiffreMystereOrdinateur = generateNumber();
             System.out.println("verification du chiffre généré " + chiffreMystereOrdinateur);
-        }else{
+        } else {
             chiffreMystereOrdinateur = generateNumber(nbrCases);
 
         }
         tabChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(chiffreMystereOrdinateur);
 
         //Mode développeur activé ou non
-        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Developpeur")){
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Developpeur")) {
             System.out.println("Le chiffre mystere de l'ordinateur est " + chiffreMystereOrdinateur);
         }
 
@@ -94,16 +95,16 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
             compareTableauChiffreMystere(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
 
 
-
             //Comparaison et calcul ordinateur --> joueur
             compareTbaleauChiffreMystereDefenseur(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur);
-        }while ( !propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)  && !java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur,tabChiffreMystereJoueur) && compteur != nbrEssai);
+        }
+        while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && !java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != nbrEssai);
 
-        if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)){
+        if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné !!!!");
-        }else if (java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur,tabChiffreMystereJoueur)){
+        } else if (java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println("L'ordinateur a gagné !!!!");
-        }else{
+        } else {
             System.out.println("Personne na gagné, nombre d'essai dépassé");
         }
 
@@ -117,23 +118,17 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
                 logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
-        }while (choixFinJeux < 1 || choixFinJeux > 3);
+        } while (choixFinJeux < 1 || choixFinJeux > 3);
 
-        menuGameSelection.selectedEndGameMode(1,3,choixFinJeux);
+        menuGameSelection.selectedEndGameMode(1, 3, choixFinJeux);
 
     }
-
-
-
-
-
-
 
 
     public void compareTbaleauChiffreMystereDefenseur(int[] tabPropositionChiffreMystereOrdinateur, int[] tabChiffreMystereJoueur) {
 
         System.out.print("Proposition  Ordinateur : ");
-        for ( int i = 0 ; i < tabPropositionChiffreMystereOrdinateur.length; i++){
+        for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
             System.out.print(tabPropositionChiffreMystereOrdinateur[i]);
 
         }

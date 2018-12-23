@@ -13,11 +13,10 @@ public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
 
     final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
 
-    public void runChiffreMystereDefenseurMode(){
+    public void runChiffreMystereDefenseurMode() {
 
         //Lecture du fichier de configuration
         runConfiguration();
-
 
         //Affichage du mode de jeux
         System.out.println("**********        **********************************                 ************");
@@ -26,22 +25,22 @@ public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
         System.out.println();
 
         //Pré configuration de la partie
-        if (configurationJeux.equalsIgnoreCase("false")){
+        if (configurationJeux.equalsIgnoreCase("false")) {
 
             do {
                 System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
                 chiffreMystereJoueur = sc.nextLine();
-            }while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
-        }else{
+            } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
+        } else {
             do {
                 System.out.println("Veuillez sasir un nombre Mystère à " + nbrCases + " chiffres");
                 chiffreMystereJoueur = sc.nextLine();
-            }while ( !chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != nbrCases);
+            } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != nbrCases);
         }
 
         //Mode développeur activé ou non
-        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")){
-            System.out.println("Votre chiffre Mystere est " + chiffreMystereJoueur);;
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+            System.out.println("Votre chiffre Mystere est " + chiffreMystereJoueur);
         }
 
         //Découpe du chiffre mystere du joueur et passage dans un tableau
@@ -50,16 +49,16 @@ public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
         //Partie Ordinateur
         System.out.println("L'ordinateur réfléchi à un chiffre Mystère");
 
-        if (configurationJeux.equalsIgnoreCase("false")){
+        if (configurationJeux.equalsIgnoreCase("false")) {
             propositionChiffreMystereOrdinateur = generateNumber();
-        }else{
+        } else {
             propositionChiffreMystereOrdinateur = generateNumber(nbrCases);
         }
 
         tabPropositionChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(propositionChiffreMystereOrdinateur);
 
         //Comparaison et calcul
-        compareTbaleauChiffreMystereDefenseur(tabChiffreMystereJoueur,tabChiffreMystereOrdinateur,propositionChiffreMystereOrdinateur,chiffreMystereJoueur);
+        compareTbaleauChiffreMystereDefenseur(tabChiffreMystereJoueur, tabChiffreMystereOrdinateur, propositionChiffreMystereOrdinateur, chiffreMystereJoueur);
 
         //Fin du jeux
         do {
@@ -71,9 +70,9 @@ public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
                 logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
-        }while (choixFinJeux < 1 || choixFinJeux > 3);
+        } while (choixFinJeux < 1 || choixFinJeux > 3);
 
-        menuGameSelection.selectedEndGameMode(1,2,choixFinJeux);
+        menuGameSelection.selectedEndGameMode(1, 2, choixFinJeux);
 
     }
 }

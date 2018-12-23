@@ -11,11 +11,11 @@ import java.util.Properties;
 public abstract class Configuration {
 
     final static Logger logger = Logger.getLogger(Configuration.class);
-    protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux ="false";
-    protected int nbrAleatoireMinimum,nbrAleatoireMaximum,nbrEssai = 10, nbrCases;
+    protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
+    protected int nbrAleatoireMinimum, nbrAleatoireMaximum, nbrEssai = 10, nbrCases;
 
-    public void runConfiguration(){
-      // ecrireFichierConfiguration();
+    public void runConfiguration() {
+        // ecrireFichierConfiguration();
         lireFichierConfiguration();
     }
 

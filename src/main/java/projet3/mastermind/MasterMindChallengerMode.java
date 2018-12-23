@@ -13,8 +13,8 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
 
     final static Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
 
-    public void runMasterMindChallengerMode(){
-       //Lecture du fichier de configuration
+    public void runMasterMindChallengerMode() {
+        //Lecture du fichier de configuration
         runConfiguration();
 
         //Affichage du mode de jeux
@@ -23,15 +23,15 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
         System.out.println("**********        *******************************                     *******************");
 
         //Pré configuration de la partie
-        if (configurationJeux.equalsIgnoreCase("false")){
+        if (configurationJeux.equalsIgnoreCase("false")) {
             chiffreMystereOrdinateur = generateNumber();
-        }else{
+        } else {
             chiffreMystereOrdinateur = generateNumber(nbrCases);
 
         }
 
         //Permet d'afficher la solution en mode développeur
-        if ( modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Deoppeur")){
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Deoppeur")) {
             System.out.println("Le combinaison généré par l'ordinateur est  " + chiffreMystereOrdinateur);
         }
         tabChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(chiffreMystereOrdinateur);
@@ -58,11 +58,11 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
 
             //Comparaison et calcul
             compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
-        }while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && compteur != nbrEssai);
+        } while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && compteur != nbrEssai);
 
-        if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)){
+        if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné!!!!!");
-        }else{
+        } else {
             System.out.println("Dommage vous avez perdu!! la réponse était " + chiffreMystereOrdinateur);
         }
 
@@ -78,12 +78,11 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
                 logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
             sc.nextLine();
-        }while (choixFinJeux < 1 || choixFinJeux > 3);
-        menuGameSelection.selectedEndGameMode(2,1,choixFinJeux);
+        } while (choixFinJeux < 1 || choixFinJeux > 3);
+        menuGameSelection.selectedEndGameMode(2, 1, choixFinJeux);
     }
 
 
-
-    }
+}
 
 

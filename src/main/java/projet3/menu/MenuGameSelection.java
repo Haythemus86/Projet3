@@ -11,7 +11,7 @@ public class MenuGameSelection extends MenuTraitement {
 
     final static Logger logger = Logger.getLogger(MenuGameSelection.class);
 
-    public void runMenuGameSelection(){
+    public void runMenuGameSelection() {
 
 
         do {
@@ -27,9 +27,7 @@ public class MenuGameSelection extends MenuTraitement {
 
             }
             sc.nextLine();
-        }while (choixJeux < 1 || choixJeux > 2);
-
-
+        } while (choixJeux < 1 || choixJeux > 2);
 
 
         do {
@@ -43,16 +41,14 @@ public class MenuGameSelection extends MenuTraitement {
             }
             sc.nextLine();
 
-        selectedGameMode(choixJeux,choixModeJeux);
-        }while ( choixModeJeux < 1 || choixModeJeux > 3);
-
-
+            selectedGameMode(choixJeux, choixModeJeux);
+        } while (choixModeJeux < 1 || choixModeJeux > 3);
 
 
     }
 
 
-    public void displayGameSelection(){
+    public void displayGameSelection() {
         System.out.println("*********         *******************          **********");
         System.out.println("*********         *Menu De Selection*          **********");
         System.out.println("*********         *******************          **********");
@@ -64,7 +60,7 @@ public class MenuGameSelection extends MenuTraitement {
         System.out.println("*********************************************************");
     }
 
-    public void displayGameModeSelection(){
+    public void displayGameModeSelection() {
         System.out.println("*********     *******************              **********");
         System.out.println("*********     *MENU MODE DE JEUX*              **********");
         System.out.println("*********     *******************              **********");
@@ -78,7 +74,7 @@ public class MenuGameSelection extends MenuTraitement {
     }
 
 
-    public void displayEndGameSelection(){
+    public void displayEndGameSelection() {
         System.out.println("*********     ******************                **********");
         System.out.println("*********     *MENU FIN DE JEUX*                **********");
         System.out.println("*********     ******************                **********");
@@ -91,10 +87,6 @@ public class MenuGameSelection extends MenuTraitement {
         System.out.println("**********************************************************");
 
     }
-
-
-
-
 
 
 }
