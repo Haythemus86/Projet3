@@ -16,6 +16,7 @@ public abstract class TraitementEtCalcul extends Configuration {
     final static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
 
 
+
     protected int nombreAleatoire, choixFinJeux, compteur = 0;
     protected int[] tabChiffreMystereOrdinateur, tabPropositionChiffreMystereOrdinateur;
     protected int[] tabPropositionChiffreJoueur, tabChiffreMystereJoueur;
@@ -239,6 +240,10 @@ public abstract class TraitementEtCalcul extends Configuration {
                 break;
             }
             case 9: {
+                nombreAleatoire = rand.nextInt(999999999 - 0 + 1) + 0;
+                break;
+            }
+            case 10: {
                 nombreAleatoire = rand.nextInt(999999999 - 0 + 1) + 0;
                 break;
             }

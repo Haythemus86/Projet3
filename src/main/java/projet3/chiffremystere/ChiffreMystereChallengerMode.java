@@ -68,7 +68,7 @@ public class ChiffreMystereChallengerMode extends TraitementEtCalcul {
         if (Arrays.equals(tabPropositionChiffreJoueur, tabChiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagner");
         } else {
-            System.out.println("Dommage vous avez perdu");
+            System.out.println("Dommage vous avez perdu, la réponse était " + chiffreMystereOrdinateur);
         }
 
         System.out.println();

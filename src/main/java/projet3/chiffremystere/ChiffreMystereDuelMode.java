@@ -4,6 +4,7 @@ import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -17,7 +18,6 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
 
         //Lecture du fichier de configuration
         runConfiguration();
-
 
         //Affichage du mode de jeux
         System.out.println("**********        **********************************                 ************");
@@ -34,7 +34,7 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
             } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != 4);
         } else {
             do {
-                System.out.println("Veuillez sasir un nombre Mystère à " + nbrCases + " chiffres");
+                System.out.println("Veuillez saisir un nombre Mystère à " + nbrCases + " chiffres");
                 chiffreMystereJoueur = sc.nextLine();
             } while (!chiffreMystereJoueur.matches(regex) || chiffreMystereJoueur.length() != nbrCases);
         }
@@ -42,34 +42,29 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
         System.out.println("Le chiffre mystere du joueur est enregistré");
 
         //Mode développeur activé ou non
-        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Developpeur")) {
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Votre chiffre Mystere est " + chiffreMystereJoueur);
-            ;
         }
 
 
         //Partie Ordinateur
         if (configurationJeux.equalsIgnoreCase("false")) {
             chiffreMystereOrdinateur = generateNumber();
-            System.out.println("verification du chiffre généré " + chiffreMystereOrdinateur);
         } else {
             chiffreMystereOrdinateur = generateNumber(nbrCases);
-
         }
         tabChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(chiffreMystereOrdinateur);
 
         //Mode développeur activé ou non
-        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("Developpeur")) {
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le chiffre mystere de l'ordinateur est " + chiffreMystereOrdinateur);
         }
 
         //Partie Ordinateur proposition
         if (configurationJeux.equalsIgnoreCase("false")) {
             propositionChiffreMystereOrdinateur = generateNumber();
-            System.out.println("verification du chiffre généré " + propositionChiffreMystereOrdinateur);
         } else {
             propositionChiffreMystereOrdinateur = generateNumber(nbrCases);
-
         }
         tabPropositionChiffreMystereOrdinateur = decoupePropositionChiffreMystereOrdinateur(propositionChiffreMystereOrdinateur);
 
@@ -98,11 +93,11 @@ public class ChiffreMystereDuelMode extends TraitementEtCalcul {
             //Comparaison et calcul ordinateur --> joueur
             compareTbaleauChiffreMystereDefenseur(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur);
         }
-        while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && !java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != nbrEssai);
+        while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && !Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != nbrEssai);
 
         if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné !!!!");
-        } else if (java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
+        } else if (Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println("L'ordinateur a gagné !!!!");
         } else {
             System.out.println("Personne na gagné, nombre d'essai dépassé");
