@@ -4,6 +4,7 @@ import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -75,9 +76,9 @@ public class MasterMindDefenseurMode extends TraitementEtCalcul {
             compareMasterMind(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur, propositionChiffreMystereOrdinateur);
             System.out.println();
         }
-        while ((!java.util.Arrays.equals(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur)) && compteur != nbrEssai);
+        while ((!Arrays.equals(tabChiffreMystereJoueur, tabPropositionChiffreMystereOrdinateur)) && compteur != nbrEssai);
 
-        if (java.util.Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
+        if (Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println("L'ordinateur à gagné !!! La réponse est " + chiffreMystereJoueur);
         } else {
             System.out.println("L'ordinateur à perdu, la réponse était " + chiffreMystereJoueur);
