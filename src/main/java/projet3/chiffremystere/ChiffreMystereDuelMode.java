@@ -15,7 +15,7 @@ import java.util.InputMismatchException;
  */
 public class ChiffreMystereDuelMode extends TraitementEtCalcul {
 
-    final static Logger logger = Logger.getLogger(ChiffreMystereDuelMode.class);
+    final Logger logger = Logger.getLogger(ChiffreMystereDuelMode.class);
 
     public void runChiffreMystereDuelMode() {
 

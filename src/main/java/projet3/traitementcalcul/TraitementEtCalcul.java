@@ -16,7 +16,7 @@ import java.util.Scanner;
 public abstract class TraitementEtCalcul extends Configuration {
 
 
-    final static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
+    protected static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
 
 
     final long leftLimit = 0L;

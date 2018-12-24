@@ -15,7 +15,7 @@ import java.util.InputMismatchException;
  */
 public class MasterMindDuelMode extends TraitementEtCalcul {
 
-    final static Logger logger = Logger.getLogger(MasterMindDuelMode.class);
+    final Logger logger = Logger.getLogger(MasterMindDuelMode.class);
 
     public void runMasterMindDuelMode() {
         //Lecture du fichier de configuration

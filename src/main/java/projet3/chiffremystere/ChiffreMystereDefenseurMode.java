@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
  */
 public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
 
-    final static Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
+    final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
 
     public void runChiffreMystereDefenseurMode() {
 

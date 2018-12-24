@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
  */
 public class MasterMindChallengerMode extends TraitementEtCalcul {
 
-    final static Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
+    final Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
 
     public void runMasterMindChallengerMode() {
 
