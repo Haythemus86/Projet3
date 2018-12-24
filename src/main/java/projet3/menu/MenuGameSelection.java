@@ -14,6 +14,9 @@ public class MenuGameSelection extends MenuTraitement {
 
     final static Logger logger = Logger.getLogger(MenuGameSelection.class);
 
+    /**
+     * methode permetant de lancer la selection des jeux
+     */
     public void runMenuGameSelection() {
 
 
@@ -51,6 +54,9 @@ public class MenuGameSelection extends MenuTraitement {
     }
 
 
+    /**
+     * Methode affichant les jeux disponibles
+     */
     public void displayGameSelection() {
         System.out.println("*********         *******************          **********");
         System.out.println("*********         *Menu De Selection*          **********");
@@ -63,6 +69,9 @@ public class MenuGameSelection extends MenuTraitement {
         System.out.println("*********************************************************");
     }
 
+    /**
+     * Methode affichant les modes de jeux disponibles
+     */
     public void displayGameModeSelection() {
         System.out.println("*********     *******************              **********");
         System.out.println("*********     *MENU MODE DE JEUX*              **********");
@@ -77,6 +86,9 @@ public class MenuGameSelection extends MenuTraitement {
     }
 
 
+    /**
+     * Methode affichant le menu de fin de jeux
+     */
     public void displayEndGameSelection() {
         System.out.println("*********     ******************                **********");
         System.out.println("*********     *MENU FIN DE JEUX*                **********");

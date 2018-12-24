@@ -39,6 +39,11 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     //Chiffre Mystere
 
+    /**
+     * Methode permerttant de decouper et  stocker le chiffre mystere de l ordinateur dans un tableau d entier puis retourne ce tableau
+     * @param chiffreMystereOrdinateur variable de type String contenant le chiffre mystere de l ordinateur
+     * @return
+     */
     public int[] decoupeChiffreMystereOrdinateur(String chiffreMystereOrdinateur) {
         tabChiffreMystereOrdinateur = new int[chiffreMystereOrdinateur.length()];
 
@@ -50,6 +55,11 @@ public abstract class TraitementEtCalcul extends Configuration {
     }
 
 
+    /**
+     * Methode permettant de decouper et stocker la proposition du joueur dans un tableau d entier puis retourne ce tableau
+     * @param propositionChiffreJoueur variable de type String contenant la proposition du joueur
+     * @return
+     */
     public int[] decoupePropositionChiffreJoueur(String propositionChiffreJoueur) {
         tabPropositionChiffreJoueur = new int[propositionChiffreJoueur.length()];
 
@@ -60,6 +70,11 @@ public abstract class TraitementEtCalcul extends Configuration {
         return tabPropositionChiffreJoueur;
     }
 
+    /**
+     * Methode permattant de decouper et stocker le chiffre mystere du joueur dans un tableau d entier puis retournce ce tableau
+     * @param chiffreMystereJoueur variable de type String contenant le chiffre mystere du joueur
+     * @return
+     */
     public int[] decoupeChiffreMystereJoueur(String chiffreMystereJoueur) {
         tabChiffreMystereJoueur = new int[chiffreMystereJoueur.length()];
 
@@ -71,6 +86,11 @@ public abstract class TraitementEtCalcul extends Configuration {
     }
 
 
+    /**
+     * Methode permettant de decouper et stocker la proposition de chiffre mystere de l ordinateur  dans un tableau d entier puis retournce ce tableau
+     * @param propositionChiffreMystereOrdinateur variable de type String contenant la proposition de chiffre mystere de l ordinateur
+     * @return
+     */
     public int[] decoupePropositionChiffreMystereOrdinateur(String propositionChiffreMystereOrdinateur) {
         tabPropositionChiffreMystereOrdinateur = new int[propositionChiffreMystereOrdinateur.length()];
 
@@ -80,6 +100,12 @@ public abstract class TraitementEtCalcul extends Configuration {
         return tabPropositionChiffreMystereOrdinateur;
     }
 
+    /**
+     * Methode permettant de comparer les tableaux contenant le chiffre mystere de l ordinateur et la proposition du joueur et affiche les indications + - =
+     * @param tabChiffreMystereOrdinateur tableau de int conteant le chiffre mystere de l ordinateur
+     * @param tabPropositionChiffreJoueur tableau de int contenant la proposition du joueur
+     * @param propositionChiffreJoueur variable String contenant la proposition du joueur
+     */
     public void compareTableauChiffreMystere(int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur) {
 
 
@@ -99,6 +125,13 @@ public abstract class TraitementEtCalcul extends Configuration {
     }
 
 
+    /**
+     * Methode permettant de comparer les tableaux contenant le chiffre mystere du joueur et la proposition de l ordinateur et affiche les indications + - =
+     * @param tabChiffreMystereJoueur tableau de int contenant le chiffre mystere du joueur
+     * @param tabChiffreMystereOrdinateur tableau de int contenant le chiffre mystere de l ordinateur
+     * @param propositionChiffreMystereOrdinateur variable String contenant la proposition de l ordinateur
+     * @param chiffreMystereJoueur variable String contenant le chiffre mystere du joueur
+     */
     public void compareTbaleauChiffreMystereDefenseur(int[] tabChiffreMystereJoueur, int[] tabChiffreMystereOrdinateur, String propositionChiffreMystereOrdinateur, String chiffreMystereJoueur) {
 
 

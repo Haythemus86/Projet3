@@ -17,12 +17,18 @@ public abstract class Configuration {
     protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
     protected int nbrAleatoireMinimum, nbrAleatoireMaximum, nbrEssai = 10, nbrCases;
 
+    /**
+     * Methode permetant de lancer la configuration du jeux
+     */
     public void runConfiguration() {
         // ecrireFichierConfiguration();
         lireFichierConfiguration();
     }
 
 
+    /**
+     * Methode permetant l ecriture d un fichier de configuration.properties pour configurer le jeux
+     */
     protected void ecrireFichierConfiguration() {
 
         Properties p = new Properties();
@@ -47,6 +53,9 @@ public abstract class Configuration {
     }
 
 
+    /**
+     * Methode permetant la lecture d un fichier de configuration config.properties existant
+     */
     protected void lireFichierConfiguration() {
 
         Properties p = new Properties();
