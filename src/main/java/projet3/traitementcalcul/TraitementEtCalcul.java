@@ -188,6 +188,12 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     //Master Mind
 
+    /**
+     * Methode permettant de comparer les tableaux contenants la combinaison mystere de  l ordinateur et la proposition du joueur et retourne les indications
+     * @param tabChiffreMystereOrdinateur tableau de int contenant la combinaison de l ordinateur
+     * @param tabPropositionChiffreJoueur tableau de int contenant la proposition du joueur
+     * @param propositionChiffreJoueur variable String contenant la proposition du joueur
+     */
     public void compareMasterMind(int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur) {
         placer = 0;
         present = 0;
@@ -224,6 +230,9 @@ public abstract class TraitementEtCalcul extends Configuration {
         }
     }
 
+    /**
+     * Methode permettant d initialiser a zero le tableau de int contenant la proposition de combinaison de l ordinateur
+     */
     public void remiseAzero() {
         for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
             if (tabPropositionChiffreMystereOrdinateur[i] != tabChiffreMystereJoueur[i]) {
@@ -232,6 +241,10 @@ public abstract class TraitementEtCalcul extends Configuration {
         }
     }
 
+    /**
+     * Methode permettant de comparer les tableaux contenant la proposition de combinaison de l ordinateur a la combinaison du joueur et d incrementer
+     * le tableau de proposition de l ordinateur de 1 en fonction du resultat
+     */
     public void testProposition() {
 
 
@@ -253,6 +266,11 @@ public abstract class TraitementEtCalcul extends Configuration {
     //Fonctions pour les deux jeux
 
 
+    /**
+     * Methode permettant de généré un nombre aléatoire en fonction de la configuration du nombre de cases
+     * @param nbrCases variable contenant le nombre de cases selectionner par le joueur
+     * @return un nombre aleatoire de type String
+     */
     protected String generateNumber(int nbrCases) {
         Random rand = new Random();
 
@@ -317,6 +335,10 @@ public abstract class TraitementEtCalcul extends Configuration {
 
     }
 
+    /**
+     * Methode permettant de générer un nombre aleatoire de 4 chiffres
+     * @return un nombre aleatoire de type String
+     */
     protected String generateNumber() {
 
         Random rand = new Random();
