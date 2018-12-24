@@ -16,7 +16,10 @@ public abstract class TraitementEtCalcul extends Configuration {
     final static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
 
 
-
+    protected long leftLimit = 0L;
+    protected long rightLimit = 10000000000L;
+    protected long generatedLong;
+    protected long nombreAleatoire2;
     protected int nombreAleatoire, choixFinJeux, compteur = 0;
     protected int[] tabChiffreMystereOrdinateur, tabPropositionChiffreMystereOrdinateur;
     protected int[] tabPropositionChiffreJoueur, tabChiffreMystereJoueur;
@@ -244,7 +247,7 @@ public abstract class TraitementEtCalcul extends Configuration {
                 break;
             }
             case 10: {
-                nombreAleatoire = rand.nextInt(999999999 - 0 + 1) + 0;
+                nombreAleatoire2 = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
                 break;
             }
             default: {
@@ -253,13 +256,22 @@ public abstract class TraitementEtCalcul extends Configuration {
             }
         }
 
-        nombreAleatoireString = "" + nombreAleatoire;
+        if (nbrCases == 10){
+            nombreAleatoireString = "" + nombreAleatoire2;
+
+        }else{
+            nombreAleatoireString = "" + nombreAleatoire;
+        }
+
+
 
         tailleIdeale = nbrCases - nombreAleatoireString.length();
 
         if (tailleIdeale == 0) {
 
-        } else {
+        } else if (nbrCases == 10) {
+            nombreAleatoireString = tableauZero[tailleIdeale - 1] + nombreAleatoire2;
+        }else{
             nombreAleatoireString = tableauZero[tailleIdeale - 1] + nombreAleatoire;
         }
 

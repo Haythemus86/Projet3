@@ -40,7 +40,7 @@ public class MasterMindDuelMode extends TraitementEtCalcul {
         }
 
         //Mode développeur activé ou non
-        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")) {
+        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Votre combinaison secrète est " + chiffreMystereJoueur);
             ;
         }
