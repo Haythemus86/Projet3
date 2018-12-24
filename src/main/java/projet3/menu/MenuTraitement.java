@@ -12,6 +12,9 @@ import java.util.Scanner;
 
 /**
  * Created by i-tem on 21/11/2018.
+ * Class contenant les traitements des différents menu du jeux
+ * @author Haythem
+ * @version 1.0
  */
 public abstract class MenuTraitement {
 

@@ -9,6 +9,9 @@ import java.util.Scanner;
 
 /**
  * Created by i-tem on 21/11/2018.
+ * Class contenant les différents traitements et calculs de tous les modes de jeux
+ * @author Haythem
+ * @version 1.0
  */
 public abstract class TraitementEtCalcul extends Configuration {
 
@@ -16,9 +19,9 @@ public abstract class TraitementEtCalcul extends Configuration {
     final static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
 
 
-    protected long leftLimit = 0L;
-    protected long rightLimit = 10000000000L;
-    protected long generatedLong;
+    final long leftLimit = 0L;
+    final long rightLimit = 10000000000L;
+    final long generatedLong = 0L;
     protected long nombreAleatoire2;
     protected int nombreAleatoire, choixFinJeux, compteur = 0;
     protected int[] tabChiffreMystereOrdinateur, tabPropositionChiffreMystereOrdinateur;

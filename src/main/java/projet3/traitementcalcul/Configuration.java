@@ -7,6 +7,9 @@ import java.util.Properties;
 
 /**
  * Created by i-tem on 21/11/2018.
+ * Class permettant la création et la lecture de fichier de configuration
+ * @author Haythem
+ * @version 1.0
  */
 public abstract class Configuration {
 

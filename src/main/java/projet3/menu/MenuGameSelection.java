@@ -6,6 +6,9 @@ import java.util.InputMismatchException;
 
 /**
  * Created by i-tem on 21/11/2018.
+ * Class contenant l'affichage des différents menu du jeux
+ * @author Haythem
+ * @version 1.0
  */
 public class MenuGameSelection extends MenuTraitement {
 

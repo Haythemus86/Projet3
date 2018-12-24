@@ -8,6 +8,9 @@ import java.util.InputMismatchException;
 
 /**
  * Created by i-tem on 21/11/2018.
+ * Class permettant de lancer le jeux Chiffre Mystere Defenseur mode
+ * @author Haythem
+ * @version 1.0
  */
 public class ChiffreMystereDefenseurMode extends TraitementEtCalcul {
 
