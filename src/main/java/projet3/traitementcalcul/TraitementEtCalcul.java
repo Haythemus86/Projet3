@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Haythem
  * @version 1.0
  */
-public abstract class TraitementEtCalcul extends Configuration {
+public class TraitementEtCalcul extends Configuration {
 
 
     protected static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
@@ -23,13 +23,18 @@ public abstract class TraitementEtCalcul extends Configuration {
     final long rightLimit = 10000000000L;
     final long generatedLong = 0L;
     protected long nombreAleatoire2;
-    protected int nombreAleatoire, choixFinJeux, compteur = 0;
-    protected int[] tabChiffreMystereOrdinateur, tabPropositionChiffreMystereOrdinateur;
-    protected int[] tabPropositionChiffreJoueur, tabChiffreMystereJoueur;
-    protected Scanner sc = new Scanner(System.in);
-    protected String propositionChiffreJoueur, chiffreMystereJoueur;
+    protected int nombreAleatoire;
+    public int choixFinJeux;
+    public int compteur = 0;
+    public int[] tabChiffreMystereOrdinateur;
+    public int[] tabPropositionChiffreMystereOrdinateur;
+    public int[] tabPropositionChiffreJoueur;
+    public int[] tabChiffreMystereJoueur;
+    public Scanner sc = new Scanner(System.in);
+    public String propositionChiffreJoueur;
+    public String chiffreMystereJoueur;
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected String nombreAleatoireString, chiffreMystereOrdinateur, regex = "\\d+", propositionChiffreMystereOrdinateur;
+    public String nombreAleatoireString, chiffreMystereOrdinateur, regex = "\\d+", propositionChiffreMystereOrdinateur;
     protected int tailleIdeale;
     protected String[] tableauZero = {"0", "00", "000", "0000", "00000", "000000", "0000000", "00000000", "000000000"};
     protected int placer;
@@ -271,7 +276,7 @@ public abstract class TraitementEtCalcul extends Configuration {
      * @param nbrCases variable contenant le nombre de cases selectionner par le joueur
      * @return un nombre aleatoire de type String
      */
-    protected String generateNumber(int nbrCases) {
+    public String generateNumber(int nbrCases) {
         Random rand = new Random();
 
 
@@ -339,7 +344,7 @@ public abstract class TraitementEtCalcul extends Configuration {
      * Methode permettant de générer un nombre aleatoire de 4 chiffres
      * @return un nombre aleatoire de type String
      */
-    protected String generateNumber() {
+    public String generateNumber() {
 
         Random rand = new Random();
 

@@ -11,11 +11,14 @@ import java.util.Properties;
  * @author Haythem
  * @version 1.0
  */
-public abstract class Configuration {
+public class Configuration {
 
     final static Logger logger = Logger.getLogger(Configuration.class);
-    protected String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
-    protected int nbrAleatoireMinimum, nbrAleatoireMaximum, nbrEssai = 10, nbrCases;
+    public String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
+    protected int nbrAleatoireMinimum;
+    protected int nbrAleatoireMaximum;
+    public int nbrEssai = 10;
+    public int nbrCases;
 
     /**
      * Methode permetant de lancer la configuration du jeux

@@ -16,7 +16,7 @@ import java.util.Scanner;
  * @author Haythem
  * @version 1.0
  */
-public abstract class MenuTraitement {
+public class MenuTraitement {
 
     protected Scanner sc = new Scanner(System.in);
     protected int choixJeux, choixModeJeux;
