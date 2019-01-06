@@ -1,6 +1,8 @@
 package main.java.projet3.mastermind;
 
+import main.java.projet3.menu.MenuGameSelection;
 import main.java.projet3.opc.Main;
+import main.java.projet3.traitementcalcul.Configuration;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
 import org.apache.log4j.Logger;
 
@@ -12,14 +14,17 @@ import java.util.InputMismatchException;
  * @author Haythem
  * @version 1.0
  */
-public class MasterMindChallengerMode extends TraitementEtCalcul {
+public class MasterMindChallengerMode {
 
     final Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
+    protected Configuration configuration = new Configuration();
+    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
 
     public void runMasterMindChallengerMode() {
 
         //Lecture du fichier de configuration
-        runConfiguration();
+        configuration.runConfiguration();
 
         //Affichage du mode de jeux
         System.out.println("**********        *******************************                     *******************");
@@ -27,47 +32,47 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
         System.out.println("**********        *******************************                     *******************");
 
         //Pré configuration de la partie
-        if (configurationJeux.equalsIgnoreCase("false")) {
-            chiffreMystereOrdinateur = generateNumber();
+        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            chiffreMystereOrdinateur = generateNumber(nbrCases);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
 
         }
 
         //Permet d'afficher la solution en mode développeur
-        if (modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
-            System.out.println("Le combinaison généré par l'ordinateur est  " + chiffreMystereOrdinateur);
+        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+            System.out.println("Le combinaison généré par l'ordinateur est  " + traitementEtCalcul.chiffreMystereOrdinateur);
         }
-        tabChiffreMystereOrdinateur = decoupeChiffreMystereOrdinateur(chiffreMystereOrdinateur);
+        traitementEtCalcul.tabChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.chiffreMystereOrdinateur);
 
 
         do {
-            compteur++;
+            traitementEtCalcul.compteur++;
 
             //Partie joueur
-            if (configurationJeux.equalsIgnoreCase("false")) {
+            if (configuration.configurationJeux.equalsIgnoreCase("false")) {
                 do {
                     System.out.println("Entrez une combinaison à 4 chiffres");
-                    propositionChiffreJoueur = sc.nextLine();
-                    nbrEssai = 10;
-                } while (!propositionChiffreJoueur.matches(regex) || propositionChiffreJoueur.length() != 4);
+                    traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
+                    traitementEtCalcul.nbrEssai = 10;
+                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {
-                    System.out.println("Entrez une combinaison à " + nbrCases + " chiffres");
-                    propositionChiffreJoueur = sc.nextLine();
-                } while (!propositionChiffreJoueur.matches(regex) || propositionChiffreJoueur.length() != nbrCases);
+                    System.out.println("Entrez une combinaison à " + configuration.nbrCases + " chiffres");
+                    traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
+                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
             }
-            tabPropositionChiffreJoueur = decoupePropositionChiffreJoueur(propositionChiffreJoueur);
+            traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
 
 
             //Comparaison et calcul
-            compareMasterMind(tabChiffreMystereOrdinateur, tabPropositionChiffreJoueur, propositionChiffreJoueur);
-        } while (!propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur) && compteur != nbrEssai);
+            traitementEtCalcul.compareMasterMind(traitementEtCalcul.tabChiffreMystereOrdinateur, traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.propositionChiffreJoueur);
+        } while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.nbrEssai);
 
-        if (propositionChiffreJoueur.equalsIgnoreCase(chiffreMystereOrdinateur)) {
+        if (traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné!!!!!");
         } else {
-            System.out.println("Dommage vous avez perdu!! la réponse était " + chiffreMystereOrdinateur);
+            System.out.println("Dommage vous avez perdu!! la réponse était " + traitementEtCalcul.chiffreMystereOrdinateur);
         }
 
 
@@ -77,13 +82,13 @@ public class MasterMindChallengerMode extends TraitementEtCalcul {
             System.out.println("Veuillez faire un choix svp");
 
             try {
-                choixFinJeux = sc.nextInt();
+                traitementEtCalcul.choixFinJeux = traitementEtCalcul.sc.nextInt();
             } catch (InputMismatchException e) {
                 logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
             }
-            sc.nextLine();
-        } while (choixFinJeux < 1 || choixFinJeux > 3);
-        menuGameSelection.selectedEndGameMode(2, 1, choixFinJeux);
+            traitementEtCalcul.sc.nextLine();
+        } while (traitementEtCalcul.choixFinJeux < 1 || traitementEtCalcul.choixFinJeux > 3);
+        menuGameSelection.selectedEndGameMode(2, 1, traitementEtCalcul.choixFinJeux);
     }
 
 
