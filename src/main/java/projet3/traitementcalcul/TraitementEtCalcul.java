@@ -281,41 +281,13 @@ public class TraitementEtCalcul  {
         Random rand = new Random();
 
 
-        switch (nbrCases) {
-            case 4: {
-                nombreAleatoire = rand.nextInt(9999 - 0 + 1) + 0;
-                break;
-            }
-            case 5: {
-                nombreAleatoire = rand.nextInt(99999 - 0 + 1) + 0;
-                break;
-            }
-            case 6: {
-                nombreAleatoire = rand.nextInt(999999 - 0 + 1) + 0;
-                break;
-            }
-            case 7: {
-                nombreAleatoire = rand.nextInt(9999999 - 0 + 1) + 0;
-                break;
-            }
-            case 8: {
-                nombreAleatoire = rand.nextInt(99999999 - 0 + 1) + 0;
-                break;
-            }
-            case 9: {
-                nombreAleatoire = rand.nextInt(999999999 - 0 + 1) + 0;
-                break;
-            }
-            case 10: {
-                nombreAleatoire2 = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
-                break;
-            }
-            default: {
-                nombreAleatoire = rand.nextInt(9999 + 1) + 1;
-                break;
-            }
+        if ( nbrCases < 10){
+            nombreAleatoire = rand.nextInt(((int)Math.pow(10,nbrCases) - 1 ) -0 +1  );
+        }else
+        {
+            nombreAleatoire2 = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
         }
-
+        
         if (nbrCases == 10){
             nombreAleatoireString = "" + nombreAleatoire2;
 
@@ -340,6 +312,9 @@ public class TraitementEtCalcul  {
 
 
     }
+
+
+
 
     /**
      * Methode permettant de générer un nombre aleatoire de 4 chiffres
