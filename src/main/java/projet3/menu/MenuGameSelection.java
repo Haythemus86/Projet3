@@ -10,7 +10,9 @@ import java.util.InputMismatchException;
  * @author Haythem
  * @version 1.0
  */
-public class MenuGameSelection extends MenuTraitement {
+public class MenuGameSelection {
+
+    protected MenuTraitement menuTraitement = new MenuTraitement();
 
     final static Logger logger = Logger.getLogger(MenuGameSelection.class);
 
@@ -27,13 +29,13 @@ public class MenuGameSelection extends MenuTraitement {
             System.out.println("Merci de faire un choix");
 
             try {
-                choixJeux = sc.nextInt();
+                menuTraitement.choixJeux = menuTraitement.sc.nextInt();
             } catch (InputMismatchException e) {
                 logger.debug("Erreur de saisie, merci de saisir des chiffres");
 
             }
-            sc.nextLine();
-        } while (choixJeux < 1 || choixJeux > 2);
+            menuTraitement.sc.nextLine();
+        } while (menuTraitement.choixJeux < 1 || menuTraitement.choixJeux > 2);
 
 
         do {
@@ -41,14 +43,14 @@ public class MenuGameSelection extends MenuTraitement {
             System.out.println("Merci de faire un choix");
 
             try {
-                choixModeJeux = sc.nextInt();
+                menuTraitement.choixModeJeux = menuTraitement.sc.nextInt();
             } catch (InputMismatchException e) {
                 logger.debug("Erreur de saisie, merci de saisir des chiffres");
             }
-            sc.nextLine();
+            menuTraitement.sc.nextLine();
 
-            selectedGameMode(choixJeux, choixModeJeux);
-        } while (choixModeJeux < 1 || choixModeJeux > 3);
+            menuTraitement.selectedGameMode(menuTraitement.choixJeux, menuTraitement.choixModeJeux);
+        } while (menuTraitement.choixModeJeux < 1 || menuTraitement.choixModeJeux > 3);
 
 
     }

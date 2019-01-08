@@ -1,6 +1,7 @@
 package main.java.projet3.mastermind;
 
 import main.java.projet3.menu.MenuGameSelection;
+import main.java.projet3.menu.MenuTraitement;
 import main.java.projet3.opc.Main;
 import main.java.projet3.traitementcalcul.Configuration;
 import main.java.projet3.traitementcalcul.TraitementEtCalcul;
@@ -20,6 +21,7 @@ public class MasterMindChallengerMode {
     protected Configuration configuration = new Configuration();
     protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
+    protected MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runMasterMindChallengerMode() {
 
@@ -88,7 +90,7 @@ public class MasterMindChallengerMode {
             }
             traitementEtCalcul.sc.nextLine();
         } while (traitementEtCalcul.choixFinJeux < 1 || traitementEtCalcul.choixFinJeux > 3);
-        menuGameSelection.selectedEndGameMode(2, 1, traitementEtCalcul.choixFinJeux);
+        menuTraitement.selectedEndGameMode(2, 1, traitementEtCalcul.choixFinJeux);
     }
 
 
