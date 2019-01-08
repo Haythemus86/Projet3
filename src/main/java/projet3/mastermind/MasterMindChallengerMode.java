@@ -56,7 +56,7 @@ public class MasterMindChallengerMode {
                 do {
                     System.out.println("Entrez une combinaison à 4 chiffres");
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                    traitementEtCalcul.nbrEssai = 10;
+                    configuration.nbrEssai = 10;
                 } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {

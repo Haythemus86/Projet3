@@ -13,10 +13,11 @@ import java.util.Scanner;
  * @author Haythem
  * @version 1.0
  */
-public class TraitementEtCalcul extends Configuration {
+public class TraitementEtCalcul  {
 
 
     protected static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
+    protected Configuration configuration = new Configuration();
 
 
     final long leftLimit = 0L;
@@ -174,7 +175,7 @@ public class TraitementEtCalcul extends Configuration {
             System.out.print("  Réponse  ->  : ");
 
         }
-        while (!Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != nbrEssai);
+        while (!Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != configuration.nbrEssai);
 
         if (Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println();

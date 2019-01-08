@@ -40,7 +40,7 @@ public class MasterMindDuelMode {
             do {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-                traitementEtCalcul.nbrEssai = 10;
+                configuration.nbrEssai = 10;
             } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {
@@ -86,7 +86,7 @@ public class MasterMindDuelMode {
             do {
                 System.out.println("Entrez une proposition à 4 chiffres");
                 traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                traitementEtCalcul.nbrEssai = 10;
+                configuration.nbrEssai = 10;
             } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
         } else {
             do {
