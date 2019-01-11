@@ -35,11 +35,13 @@ public class TraitementEtCalcul  {
     public String propositionChiffreJoueur;
     public String chiffreMystereJoueur;
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    public String nombreAleatoireString, chiffreMystereOrdinateur, regex = "\\d+", propositionChiffreMystereOrdinateur;
+    public String nombreAleatoireString = new String(), chiffreMystereOrdinateur, regex = "\\d+", propositionChiffreMystereOrdinateur;
     protected int tailleIdeale;
     protected String[] tableauZero = {"0", "00", "000", "0000", "00000", "000000", "0000000", "00000000", "000000000"};
     protected int placer;
     protected int present;
+
+
 
 
 
@@ -269,6 +271,20 @@ public class TraitementEtCalcul  {
     }
 
 
+    public String generateNumberMasterMind( int nbrCases, int chiffreUtilisable){
+        Random random = new Random();
+        do {
+            for ( int i = 0 ; i < nbrCases ; i++)
+            {
+                nombreAleatoire = random.nextInt(chiffreUtilisable) ;
+                nombreAleatoireString = nombreAleatoireString + nombreAleatoire;
+            }
+        }while (nombreAleatoireString.length() != nbrCases);
+
+        return nombreAleatoireString;
+    }
+
+
     //Fonctions pour les deux jeux
 
 
@@ -287,15 +303,13 @@ public class TraitementEtCalcul  {
         {
             nombreAleatoire2 = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
         }
-        
+
         if (nbrCases == 10){
             nombreAleatoireString = "" + nombreAleatoire2;
 
         }else{
             nombreAleatoireString = "" + nombreAleatoire;
         }
-
-
 
         tailleIdeale = nbrCases - nombreAleatoireString.length();
 
@@ -312,8 +326,6 @@ public class TraitementEtCalcul  {
 
 
     }
-
-
 
 
     /**

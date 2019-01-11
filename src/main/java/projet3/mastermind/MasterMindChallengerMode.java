@@ -33,13 +33,18 @@ public class MasterMindChallengerMode {
         System.out.println("**********        **Master Mind Challenger Mode**                     *******************");
         System.out.println("**********        *******************************                     *******************");
 
+
+        //Test
+        System.out.println(configuration.regexFinal);
+
         //Pré configuration de la partie
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
 
         }
+
 
         //Permet d'afficher la solution en mode développeur
         if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
@@ -60,9 +65,9 @@ public class MasterMindChallengerMode {
                 } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {
-                    System.out.println("Entrez une combinaison à " + configuration.nbrCases + " chiffres");
+                    System.out.println("Entrez une combinaison à " + configuration.nbrCases + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
+                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.regexFinal) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
             }
             traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
 

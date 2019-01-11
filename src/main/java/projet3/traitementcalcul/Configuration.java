@@ -19,6 +19,8 @@ public class Configuration {
     protected int nbrAleatoireMaximum;
     public int nbrEssai = 10;
     public int nbrCases;
+    public int chiffreUtilisable;
+    public String regexFinal = new String();
 
     /**
      * Methode permetant de lancer la configuration du jeux
@@ -26,6 +28,7 @@ public class Configuration {
     public void runConfiguration() {
         // ecrireFichierConfiguration();
         lireFichierConfiguration();
+        regexFinal = "[0-" + Integer.toString(chiffreUtilisable - 1)+"]+";
     }
 
 
@@ -46,6 +49,7 @@ public class Configuration {
 
         p.setProperty("DeveloppeurMode", "true");
         p.setProperty("nbrEssai", "10");
+        p.setProperty("chiffreUtilisable","4");
         try {
             p.store(os, null);
         } catch (IOException e) {
@@ -79,5 +83,6 @@ public class Configuration {
         modeDeveloppeur = p.getProperty("developpeurMode");
         nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
         configurationJeux = p.getProperty("configurationJeux");
+        chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
     }
 }
