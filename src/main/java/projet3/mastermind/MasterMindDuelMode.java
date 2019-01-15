@@ -68,7 +68,7 @@ public class MasterMindDuelMode {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
 
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,9);
         }
 
         traitementEtCalcul.tabChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.chiffreMystereOrdinateur);
@@ -128,7 +128,7 @@ public class MasterMindDuelMode {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,9);
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupePropositionChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);

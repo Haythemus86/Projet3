@@ -40,7 +40,7 @@ public class ChiffreMystereDefenseurMode {
             do {
                 System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-                configuration.nbrEssai = 5;
+                configuration.nbrEssai = 6;
             } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {

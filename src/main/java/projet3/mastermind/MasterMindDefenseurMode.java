@@ -65,7 +65,7 @@ public class MasterMindDefenseurMode {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,9);
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);

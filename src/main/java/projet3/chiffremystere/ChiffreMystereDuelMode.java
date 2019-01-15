@@ -41,6 +41,7 @@ public class ChiffreMystereDuelMode {
             do {
                 System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
+                configuration.nbrEssai = 6;
             } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {
@@ -61,9 +62,12 @@ public class ChiffreMystereDuelMode {
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases, 9);
         }
         traitementEtCalcul.tabChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.chiffreMystereOrdinateur);
+
+        System.out.println("Le chiffre mystere de l'ordinateur est enregistré");
+
 
         //Mode développeur activé ou non
         if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
@@ -72,10 +76,14 @@ public class ChiffreMystereDuelMode {
 
         //Partie Ordinateur proposition
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
+            System.out.println("la ici la ");
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = "9999";
+            System.out.println("ici lal lalal");
+
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,9);
         }
+
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupePropositionChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);
 
 

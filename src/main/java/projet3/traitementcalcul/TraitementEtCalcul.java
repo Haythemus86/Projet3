@@ -35,7 +35,7 @@ public class TraitementEtCalcul  {
     public String propositionChiffreJoueur;
     public String chiffreMystereJoueur;
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    public String nombreAleatoireString = new String(), chiffreMystereOrdinateur, regex = "\\d+", propositionChiffreMystereOrdinateur;
+    public String nombreAleatoireString = new String(), chiffreMystereOrdinateur = new String(), regex = "\\d+", propositionChiffreMystereOrdinateur = new String();
     protected int tailleIdeale;
     protected String[] tableauZero = {"0", "00", "000", "0000", "00000", "000000", "0000000", "00000000", "000000000"};
     protected int placer;
@@ -294,7 +294,7 @@ public class TraitementEtCalcul  {
      * @return un nombre aleatoire de type String
      */
 
-
+/*
     public String generateNumber(int nbrCases) {
         Random rand = new Random();
 
@@ -328,7 +328,7 @@ public class TraitementEtCalcul  {
 
 
     }
-
+*/
 
     /**
      * Methode permettant de générer un nombre aleatoire de 4 chiffres
@@ -336,7 +336,7 @@ public class TraitementEtCalcul  {
      */
     public String generateNumber() {
 
-        return this.generateNumberMasterMind(4,4);
+        return this.generateNumberMasterMind(4,9);
     }
 
 
