@@ -293,6 +293,8 @@ public class TraitementEtCalcul  {
      * @param nbrCases variable contenant le nombre de cases selectionner par le joueur
      * @return un nombre aleatoire de type String
      */
+
+
     public String generateNumber(int nbrCases) {
         Random rand = new Random();
 
