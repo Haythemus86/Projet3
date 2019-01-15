@@ -20,7 +20,7 @@ public class ChiffreMystereChallengerMode {
 
 
     final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
-    public Configuration configuration = new Configuration();
+    public Configuration configuration = Configuration.getInstance();
     protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
     protected MenuTraitement menuTraitement = new MenuTraitement();
@@ -41,7 +41,7 @@ public class ChiffreMystereChallengerMode {
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber(configuration.nbrCases);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
 
         }
 

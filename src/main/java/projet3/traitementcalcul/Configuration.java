@@ -21,6 +21,16 @@ public class Configuration {
     public int nbrCases;
     public int chiffreUtilisable;
     public String regexFinal = new String();
+    private static Configuration instance = new Configuration();
+
+    private Configuration (){
+
+
+    }
+
+    public static Configuration getInstance(){
+        return instance;
+    }
 
     /**
      * Methode permetant de lancer la configuration du jeux
@@ -41,20 +51,27 @@ public class Configuration {
         OutputStream os = null;
         try {
             os = new FileOutputStream("./src/main/resources/config.properties");
+
+            p.setProperty("DeveloppeurMode", "true");
+            p.setProperty("nbrEssai", "10");
+            p.setProperty("chiffreUtilisable","4");
+            p.store(os, null);
         } catch (FileNotFoundException e) {
             logger.debug("Fichier de configuration non trouvé");
 
 
+        } catch (IOException e) {
+            logger.debug("Erreur ecriture fichier");
+
+
+        }finally {
+            try {
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        p.setProperty("DeveloppeurMode", "true");
-        p.setProperty("nbrEssai", "10");
-        p.setProperty("chiffreUtilisable","4");
-        try {
-            p.store(os, null);
-        } catch (IOException e) {
-            logger.debug("Erreur d'écriture dans le fichier");
-        }
 
 
     }
@@ -66,17 +83,16 @@ public class Configuration {
     protected void lireFichierConfiguration() {
 
         Properties p = new Properties();
-        InputStream is = null;
-        try {
-            is = new FileInputStream("./src/main/resources/config.properties");
+
+        try (InputStream is = new FileInputStream("./src/main/resources/config.properties")) {
+
+            p.load(is);
         } catch (FileNotFoundException e) {
             logger.debug("Fichier de configuration non trouvé");
-        }
-        try {
-            p.load(is);
         } catch (IOException e) {
             logger.debug("Impossible de charger le fichier de configuration");
         }
+
 
 
         nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
@@ -84,5 +100,7 @@ public class Configuration {
         nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
         configurationJeux = p.getProperty("configurationJeux");
         chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
+
+
     }
 }

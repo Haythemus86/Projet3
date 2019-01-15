@@ -17,7 +17,7 @@ public class TraitementEtCalcul  {
 
 
     protected static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
-    protected Configuration configuration = new Configuration();
+    protected Configuration configuration = Configuration.getInstance();
 
 
     final long leftLimit = 0L;
@@ -334,22 +334,7 @@ public class TraitementEtCalcul  {
      */
     public String generateNumber() {
 
-        Random rand = new Random();
-
-        nombreAleatoire = rand.nextInt(9999 - 0 + 1) + 1;
-
-        nombreAleatoireString = "" + nombreAleatoire;
-
-        tailleIdeale = 4 - nombreAleatoireString.length();
-
-        if (tailleIdeale == 0) {
-
-        } else {
-            nombreAleatoireString = tableauZero[tailleIdeale - 1] + nombreAleatoire;
-        }
-
-
-        return nombreAleatoireString;
+        return this.generateNumberMasterMind(4,4);
     }
 
 

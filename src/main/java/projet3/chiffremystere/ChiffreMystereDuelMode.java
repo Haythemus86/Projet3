@@ -19,7 +19,7 @@ import java.util.InputMismatchException;
 public class ChiffreMystereDuelMode {
 
     final Logger logger = Logger.getLogger(ChiffreMystereDuelMode.class);
-    protected Configuration configuration = new Configuration();
+    protected Configuration configuration = Configuration.getInstance();
     protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
     protected MenuTraitement menuTraitement = new MenuTraitement();

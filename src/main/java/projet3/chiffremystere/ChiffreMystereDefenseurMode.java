@@ -18,7 +18,7 @@ import java.util.InputMismatchException;
 public class ChiffreMystereDefenseurMode {
 
     final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
-    protected Configuration configuration = new Configuration();
+    protected Configuration configuration = Configuration.getInstance();
     protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
     protected MenuTraitement menuTraitement = new MenuTraitement();
