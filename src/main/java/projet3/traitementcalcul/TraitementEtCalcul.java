@@ -24,7 +24,6 @@ public class TraitementEtCalcul  {
     final long rightLimit = 10000000000L;
     final long generatedLong = 0L;
     protected long nombreAleatoire2;
-    protected int nombreAleatoire;
     public int choixFinJeux;
     public int compteur = 0;
     public int[] tabChiffreMystereOrdinateur;
@@ -35,7 +34,7 @@ public class TraitementEtCalcul  {
     public String propositionChiffreJoueur;
     public String chiffreMystereJoueur;
     protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    public String nombreAleatoireString = new String(), chiffreMystereOrdinateur = new String(), regex = "\\d+", propositionChiffreMystereOrdinateur = new String();
+    public String chiffreMystereOrdinateur = "", regex = "\\d+", propositionChiffreMystereOrdinateur = "";
     protected int tailleIdeale;
     protected String[] tableauZero = {"0", "00", "000", "0000", "00000", "000000", "0000000", "00000000", "000000000"};
     protected int placer;
@@ -273,10 +272,11 @@ public class TraitementEtCalcul  {
 
     public String generateNumberMasterMind( int nbrCases, int chiffreUtilisable){
         Random random = new Random();
+        String nombreAleatoireString = new String();
         do {
             for ( int i = 0 ; i < nbrCases ; i++)
             {
-                nombreAleatoire = random.nextInt(chiffreUtilisable) ;
+              int  nombreAleatoire = random.nextInt(chiffreUtilisable) ;
                 nombreAleatoireString = nombreAleatoireString + nombreAleatoire;
             }
         }while (nombreAleatoireString.length() != nbrCases);

@@ -39,7 +39,8 @@ public class MasterMindChallengerMode {
 
         //Pré configuration de la partie
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,9);
+
         } else {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
 
@@ -61,7 +62,7 @@ public class MasterMindChallengerMode {
                 do {
                     System.out.println("Entrez une combinaison à 4 chiffres");
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                    configuration.nbrEssai = 10;
+                    configuration.nbrEssai = 10 ;
                 } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {
