@@ -38,6 +38,8 @@ public class Configuration {
     public void runConfiguration() {
         // ecrireFichierConfiguration();
         lireFichierConfiguration();
+
+        //
         regexFinal = "[0-" + Integer.toString(chiffreUtilisable - 1)+"]+";
     }
 
