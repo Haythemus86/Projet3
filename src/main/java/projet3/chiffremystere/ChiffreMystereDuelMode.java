@@ -36,33 +36,33 @@ public class ChiffreMystereDuelMode {
         System.out.println();
 
         //Partie Joueur
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
 
             do {
                 System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-                configuration.nbrEssai = 6;
+                configuration.setNbrEssai(6);
             } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {
-                System.out.println("Veuillez saisir un nombre Mystère à " + configuration.nbrCases + " chiffres");
+                System.out.println("Veuillez saisir un nombre Mystère à " + configuration.getNbrCases() + " chiffres");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.nbrCases);
+            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
         }
         traitementEtCalcul.tabChiffreMystereJoueur = traitementEtCalcul.decoupeChiffreMystereJoueur(traitementEtCalcul.chiffreMystereJoueur);
         System.out.println("Le chiffre mystere du joueur est enregistré");
 
         //Mode développeur activé ou non
-        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+        if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Votre chiffre Mystere est " + traitementEtCalcul.chiffreMystereJoueur);
         }
 
 
         //Partie Ordinateur
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases, 10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(), 10);
         }
         traitementEtCalcul.tabChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.chiffreMystereOrdinateur);
 
@@ -70,18 +70,18 @@ public class ChiffreMystereDuelMode {
 
 
         //Mode développeur activé ou non
-        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+        if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le chiffre mystere de l'ordinateur est " + traitementEtCalcul.chiffreMystereOrdinateur);
         }
 
 
         //Partie Ordinateur proposition
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
-            configuration.nbrEssai = 6;
+            configuration.setNbrEssai(6);
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,10);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),10);
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupePropositionChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);
@@ -90,16 +90,16 @@ public class ChiffreMystereDuelMode {
         do {
             traitementEtCalcul.compteur++;
 
-            if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+            if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
                 do {
                     System.out.println("Proposition Joueur nombre à 4 chiffres ");
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
                 } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {
-                    System.out.println("Proposition Joueur nombre à " + configuration.nbrCases + " chiffres ");
+                    System.out.println("Proposition Joueur nombre à " + configuration.getNbrCases() + " chiffres ");
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
+                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.getNbrCases());
 
             }
             traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
@@ -111,7 +111,7 @@ public class ChiffreMystereDuelMode {
             //Comparaison et calcul ordinateur --> joueur
             compareTbaleauChiffreMystereDefenseur(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur);
         }
-        while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur) && traitementEtCalcul.compteur != configuration.nbrEssai);
+        while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
 
         if (traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné !!!!");

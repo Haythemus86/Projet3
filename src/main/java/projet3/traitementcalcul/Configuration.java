@@ -13,7 +13,7 @@ import java.util.Properties;
  */
 public class Configuration {
 
-    final static Logger logger = Logger.getLogger(Configuration.class);
+    private final static Logger logger = Logger.getLogger(Configuration.class);
     private String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
     private int nbrEssai = 10;
     private int nbrCases;
@@ -26,8 +26,41 @@ public class Configuration {
 
     }
 
+    public void setNbrEssai(int nbrEssai) {
+        this.nbrEssai = nbrEssai;
+    }
+
+    public String getModeDeveloppeur() {
+        return modeDeveloppeur;
+    }
+
+    public String getSaisieJoueur() {
+        return saisieJoueur;
+    }
+
+    public String getConfigurationJeux() {
+        return configurationJeux;
+    }
+
+    public int getNbrEssai() {
+        return nbrEssai;
+    }
+
+    public int getNbrCases() {
+        return nbrCases;
+    }
+
+    public int getChiffreUtilisable() {
+        return chiffreUtilisable;
+    }
+
+    public String getRegexFinal() {
+        return regexFinal;
+    }
+
     public static Configuration getInstance(){
         return instance;
+
     }
 
     /**

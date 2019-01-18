@@ -35,22 +35,22 @@ public class MasterMindDuelMode {
         System.out.println("**********        *******************************                     *******************");
 
         //Pré configuration de la partie
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
 
             do {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-                configuration.nbrEssai = 6 ;
+                configuration.setNbrEssai(10);
             } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {
-                System.out.println("Veuillez sasir une combinaison à " + configuration.nbrCases + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
+                System.out.println("Veuillez sasir une combinaison à " + configuration.getNbrCases() + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.getChiffreUtilisable() - 1));
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(configuration.regexFinal) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.nbrCases);
+            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
         }
 
         //Mode développeur activé ou non
-        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+        if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Votre combinaison secrète est " + traitementEtCalcul.chiffreMystereJoueur);
             ;
         }
@@ -64,35 +64,35 @@ public class MasterMindDuelMode {
         //Partie Ordinateur
         System.out.println("L'ordinateur réfléchi à une combinaison");
 
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.chiffreMystereOrdinateur);
         System.out.println("La combinaison de l'ordinateur est enregistré");
 
         //Permet d'afficher la solution en mode développeur
-        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+        if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le combinaison généré par l'ordinateur est " + traitementEtCalcul.chiffreMystereOrdinateur);
         }
 
 
         System.out.println();
         //Partie Joueur
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             do {
                 System.out.println("Entrez une proposition à 4 chiffres");
                 traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                configuration.nbrEssai = 10;
+                configuration.setNbrEssai(10);
             } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
         } else {
             do {
-                System.out.println("Entrez une proposition à " + configuration.nbrCases + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
+                System.out.println("Entrez une proposition à " + configuration.getNbrCases() + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.getChiffreUtilisable() - 1));
                 traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-            } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.regexFinal) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
+            } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.getNbrCases());
         }
         traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
         traitementEtCalcul.compteur++;
@@ -124,11 +124,11 @@ public class MasterMindDuelMode {
         //Partie Ordinateur
         System.out.println("L'ordinateur réfléchi à une proposition");
 
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupePropositionChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);
@@ -141,7 +141,7 @@ public class MasterMindDuelMode {
 
 
             //Partie Joueur2
-            if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+            if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
                 do {
                     System.out.println("Entrez une proposition à 4 chiffres");
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
@@ -149,9 +149,9 @@ public class MasterMindDuelMode {
                 } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {
-                    System.out.println("Entrez une proposition à " + configuration.nbrCases + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
+                    System.out.println("Entrez une proposition à " + configuration.getNbrCases() + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.getChiffreUtilisable() - 1));
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.regexFinal) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
+                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.getNbrCases());
             }
             traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
             traitementEtCalcul.compteur++;
@@ -168,7 +168,7 @@ public class MasterMindDuelMode {
             System.out.println();
 
         }
-        while (!Arrays.equals(traitementEtCalcul.tabChiffreMystereJoueur, traitementEtCalcul.tabPropositionChiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.tabChiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.nbrEssai);
+        while (!Arrays.equals(traitementEtCalcul.tabChiffreMystereJoueur, traitementEtCalcul.tabPropositionChiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.tabChiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
 
         if (Arrays.equals(traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.tabChiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné la réponse est " + traitementEtCalcul.chiffreMystereOrdinateur);

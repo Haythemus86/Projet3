@@ -35,22 +35,22 @@ public class MasterMindDefenseurMode {
         System.out.println("**********        *******************************                     *******************");
 
         //Pré configuration de la partie
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
 
             do {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-                configuration.nbrEssai = 10 ;
+                configuration.setNbrEssai(10);
             } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {
-                System.out.println("Veuillez sasir une combinaison à " + configuration.nbrCases + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
+                System.out.println("Veuillez sasir une combinaison à " + configuration.getNbrCases() + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.getChiffreUtilisable() - 1));
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(configuration.regexFinal) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.nbrCases);
+            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
         }
 
         //Mode développeur activé ou non
-        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")) {
+        if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("off")) {
             System.out.println("Votre combinaison secrète est " + traitementEtCalcul.chiffreMystereJoueur);
             ;
         }
@@ -61,11 +61,11 @@ public class MasterMindDefenseurMode {
         //Partie Ordinateur
         System.out.println("L'ordinateur réfléchi à une proposition");
 
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);
@@ -86,7 +86,7 @@ public class MasterMindDefenseurMode {
             traitementEtCalcul.compareMasterMind(traitementEtCalcul.tabChiffreMystereJoueur, traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.propositionChiffreMystereOrdinateur);
             System.out.println();
         }
-        while ((!Arrays.equals(traitementEtCalcul.tabChiffreMystereJoueur, traitementEtCalcul.tabPropositionChiffreMystereOrdinateur)) && traitementEtCalcul.compteur != configuration.nbrEssai);
+        while ((!Arrays.equals(traitementEtCalcul.tabChiffreMystereJoueur, traitementEtCalcul.tabPropositionChiffreMystereOrdinateur)) && traitementEtCalcul.compteur != configuration.getNbrEssai());
 
         if (Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur)) {
             System.out.println("L'ordinateur à gagné !!! La réponse est " + traitementEtCalcul.chiffreMystereJoueur);

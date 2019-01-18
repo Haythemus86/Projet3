@@ -176,7 +176,7 @@ public class TraitementEtCalcul  {
             System.out.print("  Réponse  ->  : ");
 
         }
-        while (!Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != configuration.nbrEssai);
+        while (!Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != configuration.getNbrEssai());
 
         if (Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println();

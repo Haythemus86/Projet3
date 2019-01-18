@@ -38,11 +38,11 @@ public class ChiffreMystereChallengerMode {
 
 
         //Pré configuration de la partie
-        if (configuration.configurationJeux.equalsIgnoreCase("false")) {
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
-            configuration.nbrEssai = 6;
+            configuration.setNbrEssai(6);
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),10);
 
         }
 
@@ -50,7 +50,7 @@ public class ChiffreMystereChallengerMode {
 
         //Lancement de la partie ( Ordinateur)
         System.out.println("L'ordinateur réfléchi à un chiffre Mystère");
-        if (configuration.modeDeveloppeur.equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
+        if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le chiffre mystère de l'ordinateur est " + traitementEtCalcul.chiffreMystereOrdinateur);
 
         }
@@ -72,7 +72,7 @@ public class ChiffreMystereChallengerMode {
             //Analyse et traitement
             traitementEtCalcul.compareTableauChiffreMystere(traitementEtCalcul.tabChiffreMystereOrdinateur, traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.propositionChiffreJoueur);
         }
-        while (!Arrays.equals(traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.tabChiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.nbrEssai);
+        while (!Arrays.equals(traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.tabChiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
 
 
         if (Arrays.equals(traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.tabChiffreMystereOrdinateur)) {
