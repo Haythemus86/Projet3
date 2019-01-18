@@ -14,13 +14,11 @@ import java.util.Properties;
 public class Configuration {
 
     final static Logger logger = Logger.getLogger(Configuration.class);
-    public String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
-    protected int nbrAleatoireMinimum;
-    protected int nbrAleatoireMaximum;
-    public int nbrEssai = 10;
-    public int nbrCases;
-    public int chiffreUtilisable;
-    public String regexFinal = new String();
+    private String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
+    private int nbrEssai = 10;
+    private int nbrCases;
+    private int chiffreUtilisable;
+    private String regexFinal = new String();
     private static Configuration instance = new Configuration();
 
     private Configuration (){
@@ -103,10 +101,13 @@ public class Configuration {
         configurationJeux = p.getProperty("configurationJeux");
         chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
 
-        //Permet de forcer la valeur de chiffreUtilisable si valeur saisi dans fichier de config < 4
+        //Permet de forcer la valeur de chiffreUtilisable si la  valeur saisi dans config.properties est  < 4 ou > 10
         if ( this.chiffreUtilisable < 4 ){
-            this.chiffreUtilisable = 9;
-        }
+            this.chiffreUtilisable = 10;
+        }else if ( this.chiffreUtilisable > 10){
+            this.chiffreUtilisable = 10 ;
+        }else{}
+
 
 
     }

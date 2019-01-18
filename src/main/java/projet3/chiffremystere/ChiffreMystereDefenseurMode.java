@@ -63,7 +63,7 @@ public class ChiffreMystereDefenseurMode {
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,9);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,10);
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);

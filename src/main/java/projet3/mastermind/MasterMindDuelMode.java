@@ -65,7 +65,7 @@ public class MasterMindDuelMode {
         System.out.println("L'ordinateur réfléchi à une combinaison");
 
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,9);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);
@@ -90,7 +90,7 @@ public class MasterMindDuelMode {
             } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
         } else {
             do {
-                System.out.println("Entrez une proposition à " + configuration.nbrCases + "chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
+                System.out.println("Entrez une proposition à " + configuration.nbrCases + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.chiffreUtilisable - 1));
                 traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
             } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.regexFinal) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.nbrCases);
         }
@@ -125,7 +125,7 @@ public class MasterMindDuelMode {
         System.out.println("L'ordinateur réfléchi à une proposition");
 
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,9);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);

@@ -62,7 +62,7 @@ public class MasterMindDefenseurMode {
         System.out.println("L'ordinateur réfléchi à une proposition");
 
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,9);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);

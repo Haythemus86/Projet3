@@ -34,12 +34,9 @@ public class MasterMindChallengerMode {
         System.out.println("**********        *******************************                     *******************");
 
 
-        //Test
-        System.out.println(configuration.regexFinal);
-
         //Pré configuration de la partie
         if (configuration.configurationJeux.equalsIgnoreCase("false")) {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,9);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
 
         } else {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,configuration.chiffreUtilisable);

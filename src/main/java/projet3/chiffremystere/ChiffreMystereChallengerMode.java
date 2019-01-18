@@ -42,7 +42,7 @@ public class ChiffreMystereChallengerMode {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
             configuration.nbrEssai = 6;
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,9);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.nbrCases,10);
 
         }
 
