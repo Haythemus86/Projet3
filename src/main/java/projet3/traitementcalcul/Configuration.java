@@ -39,7 +39,7 @@ public class Configuration {
         // ecrireFichierConfiguration();
         lireFichierConfiguration();
 
-        //
+
         regexFinal = "[0-" + Integer.toString(chiffreUtilisable - 1)+"]+";
     }
 
@@ -102,6 +102,11 @@ public class Configuration {
         nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
         configurationJeux = p.getProperty("configurationJeux");
         chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
+
+        //Permet de forcer la valeur de chiffreUtilisable si valeur saisi dans fichier de config < 4
+        if ( this.chiffreUtilisable < 4 ){
+            this.chiffreUtilisable = 9;
+        }
 
 
     }
