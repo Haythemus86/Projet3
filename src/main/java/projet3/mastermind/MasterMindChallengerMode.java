@@ -12,6 +12,7 @@ import java.util.InputMismatchException;
 /**
  * Created by i-tem on 21/11/2018.
  * Class permettant de lancer le jeux Mastermind Challenger Mode
+ *
  * @author Haythem
  * @version 1.0
  */
@@ -36,10 +37,10 @@ public class MasterMindChallengerMode {
 
         //Pré configuration de la partie
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4, 10);
 
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(), configuration.getChiffreUtilisable());
 
         }
 
@@ -60,19 +61,22 @@ public class MasterMindChallengerMode {
                     System.out.println("Entrez une combinaison à 4 chiffres");
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
                     configuration.setNbrEssai(10);
-                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
+                }
+                while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
             } else {
                 do {
                     System.out.println("Entrez une combinaison à " + configuration.getNbrCases() + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.getChiffreUtilisable() - 1));
                     traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
-                } while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.getNbrCases());
+                }
+                while (!traitementEtCalcul.propositionChiffreJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.getNbrCases());
             }
             traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
 
 
             //Comparaison et calcul
             traitementEtCalcul.compareMasterMind(traitementEtCalcul.tabChiffreMystereOrdinateur, traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.propositionChiffreJoueur);
-        } while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
+        }
+        while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
 
         if (traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné!!!!!");

@@ -23,7 +23,6 @@ public class Main {
         }
 
 
-
         //Lancement du jeux
         MenuGameSelection menuGameSelection = new MenuGameSelection();
         menuGameSelection.runMenuGameSelection();

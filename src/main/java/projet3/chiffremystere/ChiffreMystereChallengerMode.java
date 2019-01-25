@@ -13,6 +13,7 @@ import java.util.InputMismatchException;
 /**
  * Created by i-tem on 21/11/2018.
  * Class permettant de lancer le jeux Chiffre Mystere Challenger mode
+ *
  * @author Haythem
  * @version 1.0
  */
@@ -20,10 +21,10 @@ public class ChiffreMystereChallengerMode {
 
 
     final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
-    public Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runChiffreMystereChallengerMode() {
 
@@ -42,7 +43,7 @@ public class ChiffreMystereChallengerMode {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
             configuration.setNbrEssai(6);
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(), 10);
 
         }
 

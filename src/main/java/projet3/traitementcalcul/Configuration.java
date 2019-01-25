@@ -8,6 +8,7 @@ import java.util.Properties;
 /**
  * Created by i-tem on 21/11/2018.
  * Class permettant la création et la lecture de fichier de configuration
+ *
  * @author Haythem
  * @version 1.0
  */
@@ -21,14 +22,12 @@ public class Configuration {
     private String regexFinal = new String();
     private static Configuration instance = new Configuration();
 
-    private Configuration (){
+    private Configuration() {
 
 
     }
 
-    public void setNbrEssai(int nbrEssai) {
-        this.nbrEssai = nbrEssai;
-    }
+    //Getters
 
     public String getModeDeveloppeur() {
         return modeDeveloppeur;
@@ -58,9 +57,16 @@ public class Configuration {
         return regexFinal;
     }
 
-    public static Configuration getInstance(){
+    public static Configuration getInstance() {
         return instance;
 
+    }
+
+
+    //Setters
+
+    public void setNbrEssai(int nbrEssai) {
+        this.nbrEssai = nbrEssai;
     }
 
     /**
@@ -71,7 +77,7 @@ public class Configuration {
         lireFichierConfiguration();
 
 
-        regexFinal = "[0-" + Integer.toString(chiffreUtilisable - 1)+"]+";
+        regexFinal = "[0-" + Integer.toString(chiffreUtilisable - 1) + "]+";
     }
 
 
@@ -87,7 +93,7 @@ public class Configuration {
 
             p.setProperty("DeveloppeurMode", "true");
             p.setProperty("nbrEssai", "10");
-            p.setProperty("chiffreUtilisable","4");
+            p.setProperty("chiffreUtilisable", "4");
             p.store(os, null);
         } catch (FileNotFoundException e) {
             logger.debug("Fichier de configuration non trouvé");
@@ -97,14 +103,13 @@ public class Configuration {
             logger.debug("Erreur ecriture fichier");
 
 
-        }finally {
+        } finally {
             try {
                 os.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
 
 
     }
@@ -127,7 +132,6 @@ public class Configuration {
         }
 
 
-
         nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
         modeDeveloppeur = p.getProperty("developpeurMode");
         nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
@@ -135,12 +139,11 @@ public class Configuration {
         chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
 
         //Permet de forcer la valeur de chiffreUtilisable si la  valeur saisi dans config.properties est  < 4 ou > 10
-        if ( this.chiffreUtilisable < 4 ){
+        if (this.chiffreUtilisable < 4) {
             this.chiffreUtilisable = 10;
-        }else if ( this.chiffreUtilisable > 10){
-            this.chiffreUtilisable = 10 ;
-        }else{}
-
+        } else if (this.chiffreUtilisable > 10) {
+            this.chiffreUtilisable = 10;
+        }
 
 
     }

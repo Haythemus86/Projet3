@@ -13,6 +13,7 @@ import java.util.Scanner;
 /**
  * Created by i-tem on 21/11/2018.
  * Class contenant les traitements des différents menu du jeux
+ *
  * @author Haythem
  * @version 1.0
  */
@@ -24,7 +25,8 @@ public class MenuTraitement {
 
     /**
      * Methode traitant le choix du jeux ainsi que le mode de jeux
-     * @param choixJeux variable recevant le jeux auquel le joueur souhaite jouer
+     *
+     * @param choixJeux     variable recevant le jeux auquel le joueur souhaite jouer
      * @param choixModeJeux variable recevant le mode de jeux auquel le joueur souhaite jouer
      */
     public void selectedGameMode(int choixJeux, int choixModeJeux) {
@@ -79,9 +81,10 @@ public class MenuTraitement {
 
     /**
      * Methode traitant la fin du jeux
-     * @param choixJeux variable recevant le jeux auquel le joueur etait entrain de jouer
+     *
+     * @param choixJeux     variable recevant le jeux auquel le joueur etait entrain de jouer
      * @param choixModeJeux variable recevant le mode de jeux auquel le joueur etait entrain de jouer
-     * @param choixFinJeux variable recevant le choix du jouer en fin de partie
+     * @param choixFinJeux  variable recevant le choix du jouer en fin de partie
      */
     public void selectedEndGameMode(int choixJeux, int choixModeJeux, int choixFinJeux) {
 
