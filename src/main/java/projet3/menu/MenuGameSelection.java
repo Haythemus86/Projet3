@@ -12,7 +12,7 @@ import java.util.InputMismatchException;
  */
 public class MenuGameSelection {
 
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     final static Logger logger = Logger.getLogger(MenuGameSelection.class);
 

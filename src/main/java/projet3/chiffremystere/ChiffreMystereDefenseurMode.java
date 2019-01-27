@@ -17,11 +17,11 @@ import java.util.InputMismatchException;
  */
 public class ChiffreMystereDefenseurMode {
 
-    final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
-    protected Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runChiffreMystereDefenseurMode() {
 
@@ -34,20 +34,13 @@ public class ChiffreMystereDefenseurMode {
         System.out.println("**********        **********************************                 ************");
         System.out.println();
 
-        //Pré configuration de la partie
-        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
 
-            do {
-                System.out.println("Veuillez saisir un nombre mystère à 4 chiffres ");
-                traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-                configuration.setNbrEssai(6);
-            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
-        } else {
-            do {
-                System.out.println("Veuillez sasir un nombre Mystère à " + configuration.getNbrCases() + " chiffres");
-                traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
-        }
+        do {
+            System.out.println("Veuillez sasir un nombre Mystère à " + configuration.getNbrCases() + " chiffres");
+            traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
+        }while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
+
+
 
         //Mode développeur activé ou non
         if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
@@ -63,7 +56,7 @@ public class ChiffreMystereDefenseurMode {
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),10);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),10);
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);

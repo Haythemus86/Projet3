@@ -19,11 +19,11 @@ import java.util.InputMismatchException;
 public class ChiffreMystereChallengerMode {
 
 
-    final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
-    public Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runChiffreMystereChallengerMode() {
 
@@ -40,9 +40,9 @@ public class ChiffreMystereChallengerMode {
         //Pré configuration de la partie
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
-            configuration.setNbrEssai(6);
+
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),10);
 
         }
 
@@ -53,8 +53,8 @@ public class ChiffreMystereChallengerMode {
         if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le chiffre mystère de l'ordinateur est " + traitementEtCalcul.chiffreMystereOrdinateur);
 
-        }
 
+        }
         System.out.println("Devinez la combinaison Mystère de l'ordinateur");
 
 

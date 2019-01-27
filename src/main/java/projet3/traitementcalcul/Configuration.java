@@ -14,8 +14,8 @@ import java.util.Properties;
 public class Configuration {
 
     private final static Logger logger = Logger.getLogger(Configuration.class);
-    private String modeDeveloppeur = "false", saisieJoueur = "false", configurationJeux = "false";
-    private int nbrEssai = 10;
+    private String modeDeveloppeur= "false", saisieJoueur = "false", configurationJeux = "false";
+    private int nbrEssai;
     private int nbrCases;
     private int chiffreUtilisable;
     private String regexFinal = new String();
@@ -120,26 +120,47 @@ public class Configuration {
         try (InputStream is = new FileInputStream("./src/main/resources/config.properties")) {
 
             p.load(is);
+
+            configurationJeux = p.getProperty("configurationJeux");
+
+            if ( this.configurationJeux.equalsIgnoreCase("true") ){
+                nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
+                modeDeveloppeur = p.getProperty("developpeurMode");
+                nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
+                chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
+            }
+
         } catch (FileNotFoundException e) {
             logger.debug("Fichier de configuration non trouvé");
+
+
         } catch (IOException e) {
             logger.debug("Impossible de charger le fichier de configuration");
+        }finally {
+            //Permet de forcer la valeur de chiffreUtilisable si la  valeur saisi dans config.properties est  < 4 ou > 10
+            if ( this.chiffreUtilisable < 4 ){
+                this.chiffreUtilisable = 10;
+            }else if ( this.chiffreUtilisable > 10){
+                this.chiffreUtilisable = 10 ;
+            }
+
+            if ( this.nbrCases == 0 ) {
+                this.nbrCases = 4 ;
+            }
+
+            if ( this.nbrEssai == 0 ){
+                this.nbrEssai = 6 ;
+            }
+
+            if ( !this.modeDeveloppeur.equalsIgnoreCase("On") && !this.modeDeveloppeur.equalsIgnoreCase("Off")){
+                this.modeDeveloppeur = "Off";
+            }
         }
 
 
 
-        nbrEssai = Integer.parseInt(p.getProperty("nbrEssai"));
-        modeDeveloppeur = p.getProperty("developpeurMode");
-        nbrCases = Integer.parseInt(p.getProperty("nbrCases"));
-        configurationJeux = p.getProperty("configurationJeux");
-        chiffreUtilisable = Integer.parseInt(p.getProperty("chiffreUtilisable"));
 
-        //Permet de forcer la valeur de chiffreUtilisable si la  valeur saisi dans config.properties est  < 4 ou > 10
-        if ( this.chiffreUtilisable < 4 ){
-            this.chiffreUtilisable = 10;
-        }else if ( this.chiffreUtilisable > 10){
-            this.chiffreUtilisable = 10 ;
-        }else{}
+
 
 
 

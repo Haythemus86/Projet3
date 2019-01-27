@@ -18,11 +18,11 @@ import java.util.InputMismatchException;
  */
 public class MasterMindDefenseurMode {
 
-    final Logger logger = Logger.getLogger(MasterMindDefenseurMode.class);
-    protected Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private final Logger logger = Logger.getLogger(MasterMindDefenseurMode.class);
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runMasterMindDefenseurMode() {
 
@@ -62,10 +62,10 @@ public class MasterMindDefenseurMode {
         System.out.println("L'ordinateur réfléchi à une proposition");
 
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(4,10);
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);

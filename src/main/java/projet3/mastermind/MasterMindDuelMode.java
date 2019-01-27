@@ -18,11 +18,11 @@ import java.util.InputMismatchException;
  */
 public class MasterMindDuelMode {
 
-    final Logger logger = Logger.getLogger(MasterMindDuelMode.class);
-    protected Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private final Logger logger = Logger.getLogger(MasterMindDuelMode.class);
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runMasterMindDuelMode() {
         //Lecture du fichier de configuration
@@ -65,10 +65,10 @@ public class MasterMindDuelMode {
         System.out.println("L'ordinateur réfléchi à une combinaison");
 
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(4,10);
 
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.chiffreMystereOrdinateur);
@@ -125,10 +125,10 @@ public class MasterMindDuelMode {
         System.out.println("L'ordinateur réfléchi à une proposition");
 
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(4,10);
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupePropositionChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);

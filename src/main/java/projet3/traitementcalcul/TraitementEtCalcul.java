@@ -270,7 +270,7 @@ public class TraitementEtCalcul  {
     }
 
 
-    public String generateNumberMasterMind( int nbrCases, int chiffreUtilisable){
+    public String generateNumberX( int nbrCases, int chiffreUtilisable){
         Random random = new Random();
         String nombreAleatoireString = new String();
         do {
@@ -294,41 +294,6 @@ public class TraitementEtCalcul  {
      * @return un nombre aleatoire de type String
      */
 
-/*
-    public String generateNumber(int nbrCases) {
-        Random rand = new Random();
-
-
-        if ( nbrCases < 10){
-            nombreAleatoire = rand.nextInt(((int)Math.pow(10,nbrCases) - 1 ) -0 +1  );
-        }else
-        {
-            nombreAleatoire2 = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
-        }
-
-        if (nbrCases == 10){
-            nombreAleatoireString = "" + nombreAleatoire2;
-
-        }else{
-            nombreAleatoireString = "" + nombreAleatoire;
-        }
-
-        tailleIdeale = nbrCases - nombreAleatoireString.length();
-
-        if (tailleIdeale == 0) {
-
-        } else if (nbrCases == 10) {
-            nombreAleatoireString = tableauZero[tailleIdeale - 1] + nombreAleatoire2;
-        }else{
-            nombreAleatoireString = tableauZero[tailleIdeale - 1] + nombreAleatoire;
-        }
-
-
-        return nombreAleatoireString;
-
-
-    }
-*/
 
     /**
      * Methode permettant de générer un nombre aleatoire de 4 chiffres
@@ -336,7 +301,7 @@ public class TraitementEtCalcul  {
      */
     public String generateNumber() {
 
-        return this.generateNumberMasterMind(4,9);
+        return this.generateNumberX(4,10);
     }
 
 

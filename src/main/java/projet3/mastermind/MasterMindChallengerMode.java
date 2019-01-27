@@ -17,11 +17,11 @@ import java.util.InputMismatchException;
  */
 public class MasterMindChallengerMode {
 
-    final Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
-    protected Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private final Logger logger = Logger.getLogger(MasterMindChallengerMode.class);
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runMasterMindChallengerMode() {
 
@@ -36,10 +36,10 @@ public class MasterMindChallengerMode {
 
         //Pré configuration de la partie
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4,10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(4,10);
 
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(),configuration.getChiffreUtilisable());
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),configuration.getChiffreUtilisable());
 
         }
 
