@@ -175,8 +175,25 @@ public class TraitementEtCalcul  {
             }
             System.out.print("  Réponse  ->  : ");
 
+
+
         }
         while (!Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != configuration.getNbrEssai());
+
+        
+        for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
+            if (tabPropositionChiffreMystereOrdinateur[i] < tabChiffreMystereJoueur[i]) {
+                System.out.print("+");
+                tabPropositionChiffreMystereOrdinateur[i] += 1;
+            } else if (tabPropositionChiffreMystereOrdinateur[i] > tabChiffreMystereJoueur[i]) {
+                System.out.print("-");
+                tabPropositionChiffreMystereOrdinateur[i] -= 1;
+            } else {
+                System.out.print("=");
+            }
+        }
+
+
 
         if (Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur)) {
             System.out.println();
@@ -308,7 +325,6 @@ public class TraitementEtCalcul  {
     //Fonction Test
 
     public void parcourTableau(int[] tableau) {
-        System.out.println("verif tableau");
         for (int i = 0; i < tableau.length; i++) {
             System.out.print(tableau[i]);
         }

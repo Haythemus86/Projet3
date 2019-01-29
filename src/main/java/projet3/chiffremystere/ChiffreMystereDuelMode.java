@@ -110,8 +110,15 @@ public class ChiffreMystereDuelMode {
 
             //Comparaison et calcul ordinateur --> joueur
             compareTbaleauChiffreMystereDefenseur(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur);
+
+            //Test
+            traitementEtCalcul.parcourTableau(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur);
+            System.out.println();
         }
         while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
+
+
+
 
         if (traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné !!!!");
@@ -141,16 +148,14 @@ public class ChiffreMystereDuelMode {
     public void compareTbaleauChiffreMystereDefenseur(int[] tabPropositionChiffreMystereOrdinateur, int[] tabChiffreMystereJoueur) {
 
         System.out.print("Proposition  Ordinateur : ");
-        for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
-            System.out.print(tabPropositionChiffreMystereOrdinateur[i]);
+        traitementEtCalcul.parcourTableau(tabPropositionChiffreMystereOrdinateur);
 
-        }
         System.out.print(" Réponse : -> ");
 
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.debug("Problème avec la fonction ThreadSleep");
         }
 
         for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
