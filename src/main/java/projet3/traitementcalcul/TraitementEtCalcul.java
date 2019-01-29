@@ -180,7 +180,7 @@ public class TraitementEtCalcul  {
         }
         while (!Arrays.equals(tabPropositionChiffreMystereOrdinateur, tabChiffreMystereJoueur) && compteur != configuration.getNbrEssai());
 
-        
+
         for (int i = 0; i < tabPropositionChiffreMystereOrdinateur.length; i++) {
             if (tabPropositionChiffreMystereOrdinateur[i] < tabChiffreMystereJoueur[i]) {
                 System.out.print("+");

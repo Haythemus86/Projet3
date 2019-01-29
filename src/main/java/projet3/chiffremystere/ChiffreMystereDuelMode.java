@@ -117,9 +117,28 @@ public class ChiffreMystereDuelMode {
         }
         while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
 
+        //Test
+        if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
+            do {
+                System.out.println("Proposition Joueur nombre à 4 chiffres ");
+                traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
+            } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != 4);
+        } else {
+            do {
+                System.out.println("Proposition Joueur nombre à " + configuration.getNbrCases() + " chiffres ");
+                traitementEtCalcul.propositionChiffreJoueur = traitementEtCalcul.sc.nextLine();
+            } while (!traitementEtCalcul.propositionChiffreJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.propositionChiffreJoueur.length() != configuration.getNbrCases());
 
+        }
+        traitementEtCalcul.tabPropositionChiffreJoueur = traitementEtCalcul.decoupePropositionChiffreJoueur(traitementEtCalcul.propositionChiffreJoueur);
 
+        //Comparaison et calcul joueur --> Ordinateur
+        traitementEtCalcul.compareTableauChiffreMystere(traitementEtCalcul.tabChiffreMystereOrdinateur, traitementEtCalcul.tabPropositionChiffreJoueur, traitementEtCalcul.propositionChiffreJoueur);
 
+        //Comparaison et calcul ordinateur --> joueur
+        compareTbaleauChiffreMystereDefenseur(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur);
+
+//
         if (traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur)) {
             System.out.println("Bravo vous avez gagné !!!!");
         } else if (Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur)) {
