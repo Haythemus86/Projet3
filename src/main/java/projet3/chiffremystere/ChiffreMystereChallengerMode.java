@@ -13,14 +13,13 @@ import java.util.InputMismatchException;
 /**
  * Created by i-tem on 21/11/2018.
  * Class permettant de lancer le jeux Chiffre Mystere Challenger mode
- *
  * @author Haythem
  * @version 1.0
  */
 public class ChiffreMystereChallengerMode {
 
 
-    final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
+    private final Logger logger = Logger.getLogger(ChiffreMystereChallengerMode.class);
     private Configuration configuration = Configuration.getInstance();
     private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
     private MenuGameSelection menuGameSelection = new MenuGameSelection();
@@ -41,9 +40,9 @@ public class ChiffreMystereChallengerMode {
         //Pré configuration de la partie
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
             traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumber();
-            configuration.setNbrEssai(6);
+
         } else {
-            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(), 10);
+            traitementEtCalcul.chiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),10);
 
         }
 
@@ -54,8 +53,8 @@ public class ChiffreMystereChallengerMode {
         if (configuration.getModeDeveloppeur().equalsIgnoreCase("On") || Main.modeDeveloppeur.equalsIgnoreCase("On")) {
             System.out.println("Le chiffre mystère de l'ordinateur est " + traitementEtCalcul.chiffreMystereOrdinateur);
 
-        }
 
+        }
         System.out.println("Devinez la combinaison Mystère de l'ordinateur");
 
 

@@ -10,11 +10,10 @@ import java.util.Scanner;
 /**
  * Created by i-tem on 21/11/2018.
  * Class contenant les différents traitements et calculs de tous les modes de jeux
- *
  * @author Haythem
  * @version 1.0
  */
-public class TraitementEtCalcul {
+public class TraitementEtCalcul  {
 
 
     protected static Logger logger = Logger.getLogger(TraitementEtCalcul.class);
@@ -42,11 +41,13 @@ public class TraitementEtCalcul {
     protected int present;
 
 
+
+
+
     //Chiffre Mystere
 
     /**
      * Methode permerttant de decouper et  stocker le chiffre mystere de l ordinateur dans un tableau d entier puis retourne ce tableau
-     *
      * @param chiffreMystereOrdinateur variable de type String contenant le chiffre mystere de l ordinateur
      * @return
      */
@@ -63,7 +64,6 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permettant de decouper et stocker la proposition du joueur dans un tableau d entier puis retourne ce tableau
-     *
      * @param propositionChiffreJoueur variable de type String contenant la proposition du joueur
      * @return
      */
@@ -79,7 +79,6 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permattant de decouper et stocker le chiffre mystere du joueur dans un tableau d entier puis retournce ce tableau
-     *
      * @param chiffreMystereJoueur variable de type String contenant le chiffre mystere du joueur
      * @return
      */
@@ -96,7 +95,6 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permettant de decouper et stocker la proposition de chiffre mystere de l ordinateur  dans un tableau d entier puis retournce ce tableau
-     *
      * @param propositionChiffreMystereOrdinateur variable de type String contenant la proposition de chiffre mystere de l ordinateur
      * @return
      */
@@ -111,10 +109,9 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permettant de comparer les tableaux contenant le chiffre mystere de l ordinateur et la proposition du joueur et affiche les indications + - =
-     *
      * @param tabChiffreMystereOrdinateur tableau de int conteant le chiffre mystere de l ordinateur
      * @param tabPropositionChiffreJoueur tableau de int contenant la proposition du joueur
-     * @param propositionChiffreJoueur    variable String contenant la proposition du joueur
+     * @param propositionChiffreJoueur variable String contenant la proposition du joueur
      */
     public void compareTableauChiffreMystere(int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur) {
 
@@ -137,13 +134,14 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permettant de comparer les tableaux contenant le chiffre mystere du joueur et la proposition de l ordinateur et affiche les indications + - =
-     *
-     * @param tabChiffreMystereJoueur             tableau de int contenant le chiffre mystere du joueur
-     * @param tabChiffreMystereOrdinateur         tableau de int contenant le chiffre mystere de l ordinateur
+     * @param tabChiffreMystereJoueur tableau de int contenant le chiffre mystere du joueur
+     * @param tabChiffreMystereOrdinateur tableau de int contenant le chiffre mystere de l ordinateur
      * @param propositionChiffreMystereOrdinateur variable String contenant la proposition de l ordinateur
-     * @param chiffreMystereJoueur                variable String contenant le chiffre mystere du joueur
+     * @param chiffreMystereJoueur variable String contenant le chiffre mystere du joueur
      */
     public void compareTbaleauChiffreMystereDefenseur(int[] tabChiffreMystereJoueur, int[] tabChiffreMystereOrdinateur, String propositionChiffreMystereOrdinateur, String chiffreMystereJoueur) {
+
+
 
 
         System.out.print("Proposition : " + propositionChiffreMystereOrdinateur + "-> Réponse : ");
@@ -199,10 +197,9 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permettant de comparer les tableaux contenants la combinaison mystere de  l ordinateur et la proposition du joueur et retourne les indications
-     *
      * @param tabChiffreMystereOrdinateur tableau de int contenant la combinaison de l ordinateur
      * @param tabPropositionChiffreJoueur tableau de int contenant la proposition du joueur
-     * @param propositionChiffreJoueur    variable String contenant la proposition du joueur
+     * @param propositionChiffreJoueur variable String contenant la proposition du joueur
      */
     public void compareMasterMind(int[] tabChiffreMystereOrdinateur, int[] tabPropositionChiffreJoueur, String propositionChiffreJoueur) {
         placer = 0;
@@ -273,15 +270,16 @@ public class TraitementEtCalcul {
     }
 
 
-    public String generateNumberMasterMind(int nbrCases, int chiffreUtilisable) {
+    public String generateNumberX( int nbrCases, int chiffreUtilisable){
         Random random = new Random();
         String nombreAleatoireString = new String();
         do {
-            for (int i = 0; i < nbrCases; i++) {
-                int nombreAleatoire = random.nextInt(chiffreUtilisable);
+            for ( int i = 0 ; i < nbrCases ; i++)
+            {
+              int  nombreAleatoire = random.nextInt(chiffreUtilisable) ;
                 nombreAleatoireString = nombreAleatoireString + nombreAleatoire;
             }
-        } while (nombreAleatoireString.length() != nbrCases);
+        }while (nombreAleatoireString.length() != nbrCases);
 
         return nombreAleatoireString;
     }
@@ -299,12 +297,11 @@ public class TraitementEtCalcul {
 
     /**
      * Methode permettant de générer un nombre aleatoire de 4 chiffres
-     *
      * @return un nombre aleatoire de type String
      */
     public String generateNumber() {
 
-        return this.generateNumberMasterMind(4, 9);
+        return this.generateNumberX(4,10);
     }
 
 

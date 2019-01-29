@@ -13,17 +13,16 @@ import java.util.InputMismatchException;
 /**
  * Created by i-tem on 21/11/2018.
  * Class permettant de lancer le jeux Mastermind Defenseur Mode
- *
  * @author Haythem
  * @version 1.0
  */
 public class MasterMindDefenseurMode {
 
-    final Logger logger = Logger.getLogger(MasterMindDefenseurMode.class);
-    protected Configuration configuration = Configuration.getInstance();
-    protected TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
-    protected MenuGameSelection menuGameSelection = new MenuGameSelection();
-    protected MenuTraitement menuTraitement = new MenuTraitement();
+    private final Logger logger = Logger.getLogger(MasterMindDefenseurMode.class);
+    private Configuration configuration = Configuration.getInstance();
+    private TraitementEtCalcul traitementEtCalcul = new TraitementEtCalcul();
+    private MenuGameSelection menuGameSelection = new MenuGameSelection();
+    private MenuTraitement menuTraitement = new MenuTraitement();
 
     public void runMasterMindDefenseurMode() {
 
@@ -42,14 +41,12 @@ public class MasterMindDefenseurMode {
                 System.out.println("Veuillez saisir une combinaison  à 4 chiffres ");
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
                 configuration.setNbrEssai(10);
-            }
-            while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
+            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(traitementEtCalcul.regex) || traitementEtCalcul.chiffreMystereJoueur.length() != 4);
         } else {
             do {
                 System.out.println("Veuillez sasir une combinaison à " + configuration.getNbrCases() + " chiffres , les chiffres utilisables vont de 0 a " + (configuration.getChiffreUtilisable() - 1));
                 traitementEtCalcul.chiffreMystereJoueur = traitementEtCalcul.sc.nextLine();
-            }
-            while (!traitementEtCalcul.chiffreMystereJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
+            } while (!traitementEtCalcul.chiffreMystereJoueur.matches(configuration.getRegexFinal()) || traitementEtCalcul.chiffreMystereJoueur.length() != configuration.getNbrCases());
         }
 
         //Mode développeur activé ou non
@@ -65,10 +62,10 @@ public class MasterMindDefenseurMode {
         System.out.println("L'ordinateur réfléchi à une proposition");
 
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(4, 10);
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(4,10);
 
         } else {
-            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberMasterMind(configuration.getNbrCases(), configuration.getChiffreUtilisable());
+            traitementEtCalcul.propositionChiffreMystereOrdinateur = traitementEtCalcul.generateNumberX(configuration.getNbrCases(),configuration.getChiffreUtilisable());
         }
 
         traitementEtCalcul.tabPropositionChiffreMystereOrdinateur = traitementEtCalcul.decoupeChiffreMystereOrdinateur(traitementEtCalcul.propositionChiffreMystereOrdinateur);
