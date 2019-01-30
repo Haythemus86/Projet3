@@ -138,17 +138,15 @@ public class Configuration {
             logger.debug("Impossible de charger le fichier de configuration");
         }finally {
             //Permet de forcer la valeur de chiffreUtilisable si la  valeur saisi dans config.properties est  < 4 ou > 10
-            if ( this.chiffreUtilisable < 4 ){
-                this.chiffreUtilisable = 10;
-            }else if ( this.chiffreUtilisable > 10){
-                this.chiffreUtilisable = 10 ;
-            }
+            if ( this.chiffreUtilisable < 4 || this.chiffreUtilisable > 10){
+                this.chiffreUtilisable = 10;}
+
 
             if ( this.nbrCases == 0 ) {
                 this.nbrCases = 4 ;
             }
 
-            if ( this.nbrEssai == 0 ){
+            if ( this.nbrEssai == 0 || this.nbrEssai > 10 ){
                 this.nbrEssai = 6 ;
             }
 
