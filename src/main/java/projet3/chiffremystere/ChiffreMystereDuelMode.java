@@ -111,11 +111,24 @@ public class ChiffreMystereDuelMode {
             //Comparaison et calcul ordinateur --> joueur
             compareTbaleauChiffreMystereDefenseur(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur);
 
-            //Test
-            traitementEtCalcul.parcourTableau(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur);
-            System.out.println();
         }
         while (!traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur) && !Arrays.equals(traitementEtCalcul.tabPropositionChiffreMystereOrdinateur, traitementEtCalcul.tabChiffreMystereJoueur) && traitementEtCalcul.compteur != configuration.getNbrEssai());
+        
+        if (traitementEtCalcul.propositionChiffreJoueur.equalsIgnoreCase(traitementEtCalcul.chiffreMystereOrdinateur)) {
+            System.out.println("Bravo vous avez gagné !!!!");
+            //Fin du jeux
+            do {
+                menuGameSelection.displayEndGameSelection();
+                System.out.println("Veuillez faire un choix svp");
+                try {
+                    traitementEtCalcul.choixFinJeux = traitementEtCalcul.sc.nextInt();
+                } catch (InputMismatchException e) {
+                    logger.debug("Erreur de saisie, veuillez saisir des chiffres svp");
+                }
+                traitementEtCalcul.sc.nextLine();
+            } while (traitementEtCalcul.choixFinJeux < 1 || traitementEtCalcul.choixFinJeux > 3);
+            menuTraitement.selectedEndGameMode(1, 3, traitementEtCalcul.choixFinJeux);
+        }
 
         //Test
         if (configuration.getConfigurationJeux().equalsIgnoreCase("false")) {
